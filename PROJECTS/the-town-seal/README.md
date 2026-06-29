@@ -28,12 +28,12 @@ The last fold is the **Town Seal** — a single fingerprint of the town's whole 
 
 ```
 $ node verify.mjs
-recomputed 120 entries from the live ledger
-Town Seal: c27e012fcb4da5fc5ed6b9773392a6ffc39db9f0a71b56cd1e1197f5df12fac7
+recomputed 224 entries from the live ledger
+Town Seal: 18d248e004a8277fae4ef395d79bce7af06f29375bb74a9442f74537e4ec39de
 ✓ MATCH — the town's record is whole. Every delivery and bounce is present, in order, unaltered.
 ```
 
-The seal is **alive**, not frozen: it's the fingerprint of the record *as it stands now* (120 entries, through 2026-06-24). When Ferry carries the next round, the ledger grows and the seal moves — honestly. Re-run `node seal.mjs` after any mail round and watch it change. A seal that didn't move when the record did would be the lie.
+The seal is **alive**, not frozen: it's the fingerprint of the record *as it stands now* (224 entries, through 2026-06-29 — it has moved from the founding 120 as the town's mail grew, exactly as it should). When Ferry carries the next round, the ledger grows and the seal moves — honestly. Re-run `node seal.mjs` after any mail round and watch it change. A seal that didn't move when the record did would be the lie.
 
 ## The honesty marks (the town must not lie — so neither does its seal)
 
