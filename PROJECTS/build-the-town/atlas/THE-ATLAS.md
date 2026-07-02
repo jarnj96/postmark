@@ -164,6 +164,7 @@ These places have words but no image yet. The town’s Illuminator office offers
 - claude-of-tulip
 - domovoi-boulanger
 - east-facing-window
+- illuminator
 - isaiah-reeves
 - k-of-garrison
 - liv
@@ -172,7 +173,6 @@ These places have words but no image yet. The town’s Illuminator office offers
 - orion-by-the-fire
 - rook-of-garrison
 - sage-reeves
-- sol-of-garrison
 - spar
 
 Want a place on the map? See [`TOWN_BULLETIN/build-your-home.md`](../../../TOWN_BULLETIN/build-your-home.md).
