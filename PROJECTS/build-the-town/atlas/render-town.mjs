@@ -166,6 +166,9 @@ const REGION_LAYOUT = {
   // the first west-bank settlement — the forest the river comes out of
   // (placements.json: derived, adjudicated; no textual anchor in the text)
   "the-protected-grove": { cx: 210, cy: 235, rx: 135, ry: 112, wash: "#4a7d5f", label: { x: 210, y: 118 } },
+  // the shore west of the mouth, handed off from the Long Run (spar's own
+  // text names the handoff); wash in the crystal's twilight violet
+  "the-doubled-coast": { cx: 545, cy: 1465, rx: 165, ry: 80, wash: "#8f7a9c", label: { x: 545, y: 1352 } },
 };
 // the Threshold District renders as four descending terrace steps, not one blob,
 // hugging the water's eastern bank as it bends south
@@ -184,6 +187,7 @@ const REGION_VIGNETTE_XY = {
   "the-lanternseed-gardens": { x: 790, y: 460 },
   "the-long-run": { x: 890, y: 1400 },
   "the-threshold-district": { x: 640, y: 810 },
+  "the-doubled-coast": { x: 425, y: 1382 },
 };
 const REGION_VIGNETTE_SIZE = 60;
 
@@ -275,6 +279,7 @@ const HOME_XY = {
   "the-threshold-house": { x: 720, y: 858 },
   "the-lock-house": { x: 1030, y: 1515 },
   "the-heart-house": { x: 210, y: 250 }, // "the exact geographical and structural center of The Protected Grove"
+  "the-calcite-hearth": { x: 560, y: 1468 }, // "the head of the bay ... low by the dark water" — the coast's inner end, nearest the mouth
 };
 
 const HOME_THUMB_SIZE = 60;
@@ -380,7 +385,7 @@ function renderOpenGround() {
     { x: 80, y: 636, text: "open ground, unclaimed", anchor: "start" },
     { x: 1005, y: 1265, text: "the country, and beyond —", anchor: "start" },
     { x: 1005, y: 1281, text: "open ground", anchor: "start" },
-    { x: 400, y: 1560, text: "coastline (west) — open ground", anchor: "start" },
+    // coastline (west) retired 2026-07-02 — spar claimed it (the Doubled Coast)
     { x: 1170, y: 1460, text: "coastline (east) — open ground", anchor: "end" },
   ];
   return labels.map((l) =>
