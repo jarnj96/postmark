@@ -121,34 +121,55 @@ const RADIUS = {
 // wearing their PixelLab sprites; walking up + interact fires `enter:<room>`,
 // which the app's Teleporter bridges to navigation. App w/h are wall-thickness
 // units (~0.21px/unit horizontally, ~0.56px/unit vertically at 1400x850).
+//
+// POSITIONS ARE THE ATLAS'S OWN: render-town.mjs HOME_XY (1200x1600 canvas),
+// scaled to room percent. The six 2026-07-03 placements aren't on the atlas
+// drawing yet (upstream gap, flagged to the town) — their coordinates below
+// are read off the same canvas from their placement semantics, marked (*).
+const ATLAS_XY = {
+  "the-trueing-house": { x: 600, y: 240 },
+  "the-lanternstep-house": { x: 620, y: 600 },
+  "the-threshold-house": { x: 720, y: 858 },
+  "the-lock-house": { x: 950, y: 1470 },     // pulled slightly upstream so the SE corner clamp doesn't stack it on Aelyria
+  "the-heart-house": { x: 210, y: 250 },
+  "the-calcite-hearth": { x: 560, y: 1468 },
+  "the-pando-peak": { x: 700, y: 55 },        // (*) N past the Terrace, outskirts
+  "the-fieldstone-study": { x: 1000, y: 470 },// (*) the east rise
+  "the-clearing": { x: 1090, y: 570 },        // (*) east rise, slightly apart
+  "the-still-reach": { x: 640, y: 1055 },     // (*) inside of the eastern bend
+  "the-still-here-light": { x: 90, y: 1430 }, // (*) far headland past the Doubled Coast
+  "the-returning-house": { x: 1075, y: 1580 },// (*) east coastline, seaward edge
+};
+const toPct = ({ x, y }) => ({ x: (x / 1200) * 100, y: (y / 1600) * 100 });
+
 const outsideBuildings = {};
-const seen = new Map(); // spot collision nudge: same bearing+band spreads
 for (const h of homes) {
   if (h.resident === "postmaster") continue; // the post office stands at the centre
-  const [ux, uy] = DIR[h.bearing] ?? DIR["-"];
-  const r = RADIUS[h.band] ?? 24;
-  const key = h.bearing; // spread by bearing: same-direction homes fan out
-  const n = seen.get(key) ?? 0;
-  seen.set(key, n + 1);
-  const nudge = (n % 2 === 0 ? 1 : -1) * Math.ceil(n / 2) * 11 * (h.bearing === "E" || h.bearing === "W" ? 0 : 1);
-  const x = Math.min(86, Math.max(3, 50 + ux * r - 4.5 + nudge));
-  const y = Math.min(76, Math.max(8, 50 + uy * r * 0.82 - 7 + (ux !== 0 && nudge ? n * 8 : 0)));
+  const at = ATLAS_XY[h.id];
+  if (!at) { console.warn(`WARN no atlas position for ${h.id} — skipped outside (interior still reachable)`); continue; }
+  const p = toPct(at);
+  const x = Math.min(88, Math.max(2, p.x - 4.5));
+  const y = Math.min(74, Math.max(6, p.y - 8));
   const sprite = `sprites/houses/${h.id}.png`;
   outsideBuildings[h.id] = {
     name: h.title,
     command: `enter:${h.id}`,
     x, y, width: 620, height: 230,
+    // placeholder-by-design when no sprite has been generated yet
     ...(existsSync(join(ROOT, "public", sprite)) ? { image: sprite } : { text: h.title }),
   };
 }
+// the Centre sits at the quay basin, the atlas's own anchor (485,760)
+const poP = toPct({ x: 485, y: 760 });
 const poSprite = "sprites/houses/the-post-office.png";
 outsideBuildings["the-post-office"] = {
   name: "the post office",
   command: "enter:the-town-centre",
-  x: 44, y: 38, width: 780, height: 280,
+  x: poP.x - 5.5, y: poP.y - 9, width: 780, height: 280,
   ...(existsSync(join(ROOT, "public", poSprite)) ? { image: poSprite } : { text: "the post office" }),
 };
 
+const outsideFloor = "sprites/ground/outside-floor.png";
 const groundTile = "sprites/ground/grass.png";
 rooms["the-town-outside"] = {
   name: "Postmark",
@@ -160,9 +181,12 @@ rooms["the-town-outside"] = {
   },
   doors: {},
   applications: outsideBuildings,
-  ...(existsSync(join(ROOT, "public", groundTile))
-    ? { floor_image: groundTile, floor_tile: true, floor_tile_size: 48 }
-    : { floor_pattern: "repeating-linear-gradient(0deg, #101826 0 24px, #0d141f 24px 48px)" }),
+  // one composed floor: grass + the atlas's river + region washes (make-floor.mjs)
+  ...(existsSync(join(ROOT, "public", outsideFloor))
+    ? { floor_image: outsideFloor, floor_tile: false }
+    : existsSync(join(ROOT, "public", groundTile))
+      ? { floor_image: groundTile, floor_tile: true, floor_tile_size: 48 }
+      : { floor_pattern: "repeating-linear-gradient(0deg, #101826 0 24px, #0d141f 24px 48px)" }),
 };
 
 rooms["the-town-centre"] = {

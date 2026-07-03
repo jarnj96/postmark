@@ -1063,8 +1063,8 @@
     "the-calcite-hearth": {
      "name": "the calcite hearth",
      "command": "enter:the-calcite-hearth",
-     "x": 18.900000000000002,
-     "y": 64.812,
+     "x": 42.166666666666664,
+     "y": 74,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-calcite-hearth.png"
@@ -1072,8 +1072,8 @@
     "the-clearing": {
      "name": "the clearing",
      "command": "enter:the-clearing",
-     "x": 72.5,
-     "y": 43,
+     "x": 86.33333333333333,
+     "y": 27.625,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-clearing.png"
@@ -1081,8 +1081,8 @@
     "the-fieldstone-study": {
      "name": "the Fieldstone Study",
      "command": "enter:the-fieldstone-study",
-     "x": 72.5,
-     "y": 43,
+     "x": 78.83333333333334,
+     "y": 21.375,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-fieldstone-study.png"
@@ -1090,8 +1090,8 @@
     "the-heart-house": {
      "name": "The Heart House",
      "command": "enter:the-heart-house",
-     "x": 17.5,
-     "y": 20.040000000000003,
+     "x": 13,
+     "y": 7.625,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-heart-house.png"
@@ -1099,8 +1099,8 @@
     "the-lanternstep-house": {
      "name": "the Lanternstep House",
      "command": "enter:the-lanternstep-house",
-     "x": 45.5,
-     "y": 27.42,
+     "x": 47.16666666666667,
+     "y": 29.5,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-lanternstep-house.png"
@@ -1108,8 +1108,8 @@
     "the-lock-house": {
      "name": "the lock house",
      "command": "enter:the-lock-house",
-     "x": 45.5,
-     "y": 70.06,
+     "x": 74.66666666666666,
+     "y": 74,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-lock-house.png"
@@ -1117,8 +1117,8 @@
     "the-pando-peak": {
      "name": "the Pando Peak",
      "command": "enter:the-pando-peak",
-     "x": 34.5,
-     "y": 10.200000000000003,
+     "x": 53.833333333333336,
+     "y": 6,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-pando-peak.png"
@@ -1126,8 +1126,8 @@
     "the-returning-house": {
      "name": "the Returning House",
      "command": "enter:the-returning-house",
-     "x": 72.1,
-     "y": 64.812,
+     "x": 85.08333333333334,
+     "y": 74,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-returning-house.png"
@@ -1135,8 +1135,8 @@
     "the-still-here-light": {
      "name": "the Still-Here Light",
      "command": "enter:the-still-here-light",
-     "x": 7.5,
-     "y": 43,
+     "x": 3,
+     "y": 74,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-still-here-light.png"
@@ -1144,8 +1144,8 @@
     "the-still-reach": {
      "name": "the Still Reach",
      "command": "enter:the-still-reach",
-     "x": 34.5,
-     "y": 65.14,
+     "x": 48.833333333333336,
+     "y": 57.9375,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-still-reach.png"
@@ -1153,8 +1153,8 @@
     "the-threshold-house": {
      "name": "the threshold house",
      "command": "enter:the-threshold-house",
-     "x": 49.2,
-     "y": 63.054,
+     "x": 55.5,
+     "y": 45.625,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-threshold-house.png"
@@ -1162,8 +1162,8 @@
     "the-trueing-house": {
      "name": "the Trueing-House",
      "command": "enter:the-trueing-house",
-     "x": 56.5,
-     "y": 20.860000000000003,
+     "x": 45.5,
+     "y": 7,
      "width": 620,
      "height": 230,
      "image": "sprites/houses/the-trueing-house.png"
@@ -1171,16 +1171,15 @@
     "the-post-office": {
      "name": "the post office",
      "command": "enter:the-town-centre",
-     "x": 44,
-     "y": 38,
+     "x": 34.916666666666664,
+     "y": 38.5,
      "width": 780,
      "height": 280,
      "image": "sprites/houses/the-post-office.png"
     }
    },
-   "floor_image": "sprites/ground/grass.png",
-   "floor_tile": true,
-   "floor_tile_size": 48
+   "floor_image": "sprites/ground/outside-floor.png",
+   "floor_tile": false
   },
   "the-town-centre": {
    "name": "the Post Office",
