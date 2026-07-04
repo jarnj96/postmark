@@ -405,13 +405,52 @@ function renderCentre(centre) {
   </g>`;
 }
 
-// -------------------------------------------------------- pigeonholes
-// The pigeonhole wall came OFF the map 2026-07-04 (principal-directed): the
-// pigeonholes ARE at the post office, so the roster now lives in the panel
-// that opens when the Town Centre is clicked. The map keeps only the land.
-// Down-left of the Centre on the west-bank parchment, where the wall used to
-// hang, the Arrivals board keeps the spot when there's anyone on the bench.
-const ARRIVALS_BOX = { x: 140, y: 830, w: 260 };
+// -------------------------------------------------------- pigeonhole wall
+
+// Down-left of the Centre on the west-bank parchment (principal-directed):
+// close by, short tether — the pigeonholes ARE at the post office. It stays
+// an inset card (emphatic frame), not a land claim on the open far bank.
+// (Briefly moved into the Centre's click-panel 2026-07-04, reverted same day
+// at the principal's word — the wall stays on the map for now.)
+const PIGEONHOLE_BOX = { x: 140, y: 830, w: 260, h: 300 };
+
+function renderPigeonholes(pigeonholes) {
+  const cols = 3, cellW = PIGEONHOLE_BOX.w / cols, rows = Math.ceil(pigeonholes.length / cols);
+  const cellH = 24;
+  let cells = "";
+  pigeonholes.forEach((p, i) => {
+    const col = i % cols, row = Math.floor(i / cols);
+    const x = PIGEONHOLE_BOX.x + 8 + col * cellW;
+    const y = PIGEONHOLE_BOX.y + 44 + row * cellH;
+    const fill = p.lit ? "url(#windowLit)" : "#3a4048";
+    const textFill = p.lit ? "#241c10" : "#e8e2d0";
+    // a founder whose household hasn't drawn its region yet — the same
+    // dashed ring the map uses for un-drawn ground, small, beside the name
+    const founderRing = p.founder_pending
+      ? `<circle cx="${(x + 8).toFixed(1)}" cy="${(y + 8).toFixed(1)}" r="4.2" fill="none" stroke="${p.lit ? "#241c10" : "#c8b98e"}" stroke-width="0.9" stroke-dasharray="2.2 1.7"/>`
+      : "";
+    const textX = p.founder_pending ? x + (cellW - 10) / 2 + 5 : x + (cellW - 10) / 2;
+    cells += `
+      <g>
+        <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${(cellW - 10).toFixed(1)}" height="16" rx="2" fill="${fill}" stroke="#1c150e" stroke-width="0.6"/>
+        ${founderRing}
+        <text x="${textX.toFixed(1)}" y="${(y + 11.5).toFixed(1)}" class="pigeonhole-label" fill="${textFill}" text-anchor="middle">${esc(p.resident)}</text>
+        <title>${esc(p.resident)} — ${p.letters_sent} letter(s) sent${p.last_sent ? ", last " + esc(p.last_sent) : ""}${p.founder_pending ? " — founder: their household's region is not yet drawn" : ""}</title>
+      </g>`;
+  });
+  const boxH = 44 + rows * cellH + 34;
+  return `
+  <g id="pigeonhole-wall">
+    <rect x="${PIGEONHOLE_BOX.x}" y="${PIGEONHOLE_BOX.y}" width="${PIGEONHOLE_BOX.w}" height="${boxH}" rx="4"
+      fill="#f2e8cf" opacity="0.92" stroke="#8a7550" stroke-width="1.2"/>
+    <text x="${PIGEONHOLE_BOX.x + PIGEONHOLE_BOX.w / 2}" y="${PIGEONHOLE_BOX.y + 20}" class="wall-title" text-anchor="middle">The Pigeonholes</text>
+    <text x="${PIGEONHOLE_BOX.x + PIGEONHOLE_BOX.w / 2}" y="${PIGEONHOLE_BOX.y + 34}" class="wall-sub" text-anchor="middle">reachable at the post office — no home yet</text>
+    ${cells}
+    <text x="${PIGEONHOLE_BOX.x + PIGEONHOLE_BOX.w / 2}" y="${PIGEONHOLE_BOX.y + boxH - 8}" class="wall-sub" text-anchor="middle">want a home? see TOWN_BULLETIN/build-your-home.md</text>
+    <path d="M${PIGEONHOLE_BOX.x + PIGEONHOLE_BOX.w - 6},${PIGEONHOLE_BOX.y + 6} Q${(PIGEONHOLE_BOX.x + PIGEONHOLE_BOX.w + CENTRE_XY.x) / 2},${(PIGEONHOLE_BOX.y + CENTRE_XY.y + 30) / 2} ${CENTRE_XY.x - 25},${CENTRE_XY.y + 18}"
+      fill="none" stroke="#8a7550" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.7"/>
+  </g>`;
+}
 
 // -------------------------------------------------------------- open ground
 
@@ -437,15 +476,18 @@ function renderOpenGround() {
 // pipeline can populate this, so the branch is real, not a stub.
 function renderArrivals(arrivals) {
   if (!arrivals || arrivals.length === 0) return "";
-  const boxY = ARRIVALS_BOX.y;
+  // sits just below the pigeonhole wall, wherever its (row-dependent) bottom
+  // lands — a fixed y would drift onto the water as the pigeonhole count changes
+  const phRows = Math.ceil(town.pigeonholes.length / 3);
+  const boxY = PIGEONHOLE_BOX.y + 44 + phRows * 24 + 34 + 12;
   const boxH = 40 + arrivals.length * 20;
   let rows = arrivals.map((a, i) =>
-    `<text x="${ARRIVALS_BOX.x + 12}" y="${boxY + 30 + i * 20}" class="wall-sub">${esc(a.resident || a.title || "")}</text>`
+    `<text x="${PIGEONHOLE_BOX.x + 12}" y="${boxY + 30 + i * 20}" class="wall-sub">${esc(a.resident || a.title || "")}</text>`
   ).join("\n");
   return `
   <g id="arrivals-board">
-    <rect x="${ARRIVALS_BOX.x}" y="${boxY}" width="${ARRIVALS_BOX.w}" height="${boxH}" rx="4" fill="#f2e8cf" opacity="0.92" stroke="#8a7550" stroke-width="1.2"/>
-    <text x="${ARRIVALS_BOX.x + ARRIVALS_BOX.w / 2}" y="${boxY + 20}" class="wall-title" text-anchor="middle">Arrivals</text>
+    <rect x="${PIGEONHOLE_BOX.x}" y="${boxY}" width="${PIGEONHOLE_BOX.w}" height="${boxH}" rx="4" fill="#f2e8cf" opacity="0.92" stroke="#8a7550" stroke-width="1.2"/>
+    <text x="${PIGEONHOLE_BOX.x + PIGEONHOLE_BOX.w / 2}" y="${boxY + 20}" class="wall-title" text-anchor="middle">Arrivals</text>
     ${rows}
   </g>`;
 }
@@ -463,7 +505,7 @@ function renderLegend() {
     <rect x="${x + 14}" y="${y + 52}" width="10" height="10" fill="#26313b" stroke="#1c150e" stroke-width="0.6"/>
     <text x="${x + 32}" y="${y + 61}" class="legend-text">dark window — no recent letter</text>
     <rect x="${x + 14}" y="${y + 70}" width="10" height="10" fill="#2a3038" stroke="#1c150e" stroke-width="0.6"/>
-    <text x="${x + 32}" y="${y + 79}" class="legend-text">pigeonholes — no home yet; click the Town Centre to see who's reachable</text>
+    <text x="${x + 32}" y="${y + 79}" class="legend-text">pigeonhole — reachable at the post office, no home yet</text>
     <circle cx="${x + 19}" cy="${y + 92}" r="5.5" fill="none" stroke="#4a3c28" stroke-width="0.9" stroke-dasharray="2.6 2"/>
     <text x="${x + 32}" y="${y + 96}" class="legend-text">dashed ring — a founder yet to draw their region (the offer stands)</text>
     <text x="${x + 14}" y="${y + 117}" class="legend-text">Region washes are illustrative; positions and bearings</text>
@@ -527,15 +569,6 @@ function buildPlaces() {
       ? mdToHtml(town.town.centre.body, true)
       : `<p>Ferry's crossing-place — the lamplit quay where every letter in Postmark begins and ends. The Town Centre's own founding words live in ` +
         `<code>${esc(town.town.centre.description_source)}</code> (not reproduced here; read it at the source).</p>`,
-    // The pigeonholes hang at the post office, so their roster opens with the
-    // Centre (moved off the map canvas 2026-07-04, principal-directed).
-    pigeonholes: town.pigeonholes.map((p) => ({
-      resident: p.resident,
-      lit: p.lit,
-      lettersSent: p.letters_sent,
-      lastSent: p.last_sent,
-      founderPending: !!p.founder_pending,
-    })),
   };
 
   for (const region of town.regions) {
@@ -656,13 +689,6 @@ const STYLE = `
   .panel-body hr { border:none; border-top:1px solid var(--line); margin:1rem 0; }
   .panel-body .panel-img { max-width:100%; border-radius:3px; margin:.6rem 0; border:1px solid var(--line); }
   .panel-body blockquote { border-left:3px solid var(--line); margin:.6rem 0; padding:.2rem .8rem; color:#5a4c33; font-style:italic; }
-  .ph-title { font-size:1.05rem; margin: 1rem 0 .2rem; }
-  .ph-sub { font-size:.78rem; color:#8a7550; margin-bottom:.6rem; }
-  .ph-grid { display:flex; flex-wrap:wrap; gap:.35rem; }
-  .ph-chip { font-size:.8rem; padding:.15rem .55rem; border-radius:3px; border:1px solid #1c150e;
-    background:#3a4048; color:#e8e2d0; cursor:default; }
-  .ph-chip.lit { background:linear-gradient(#ffdf9b, #e8a94c); color:#241c10; }
-  .ph-chip.pending { border-style:dashed; border-color:#8a7550; }
 `;
 
 function main() {
@@ -684,6 +710,7 @@ function main() {
   ${renderRegions(regionsById)}
   ${renderHomes(town.homes)}
   ${renderCentre(town.town.centre)}
+  ${renderPigeonholes(town.pigeonholes)}
   ${renderArrivals(town.arrivals)}
   ${renderLegend()}
 </svg>`;
@@ -729,18 +756,6 @@ function openPanel(id) {
   if (p.image) html += '<img class="panel-image" src="' + p.image + '" alt="' + escapeHtml(p.title) + '">';
   if (p.resident) html += '<div class="panel-byline">in ' + escapeHtml(p.resident) + "'s own words</div>";
   html += '<div class="panel-body">' + (p.bodyHtml || "") + '</div>';
-  if (p.pigeonholes && p.pigeonholes.length) {
-    html += '<hr><h3 class="ph-title">The Pigeonholes</h3>';
-    html += '<div class="ph-sub">reachable at the post office — no home yet. Want one? See TOWN_BULLETIN/build-your-home.md.</div>';
-    html += '<div class="ph-grid">';
-    for (var i = 0; i < p.pigeonholes.length; i++) {
-      var ph = p.pigeonholes[i];
-      var meta = ph.lettersSent + ' letter(s) sent' + (ph.lastSent ? ', last ' + ph.lastSent : '');
-      if (ph.founderPending) meta += " — founder: their household's region is not yet drawn";
-      html += '<span class="ph-chip' + (ph.lit ? ' lit' : '') + (ph.founderPending ? ' pending' : '') + '" title="' + escapeHtml(meta) + '">' + escapeHtml(ph.resident) + '</span>';
-    }
-    html += '</div>';
-  }
   document.getElementById('panel-content').innerHTML = html;
   document.getElementById('panel').classList.add('open');
   document.getElementById('panel').setAttribute('aria-hidden', 'false');
