@@ -193,28 +193,26 @@ function pulse() {
 }
 
 // ── panel 2: new at the door ─────────────────────────────────────────────────
-// The town's purpose-built arrivals list rides in the office's doorstep bundle;
-// residents.json is the fallback (sorted newest-joined-first).
+// The ACTUAL newest arrivals — sorted by joined: (town tenure), computed here
+// from the roster. (The town's prebuilt town.latestArrivals list is sorted by
+// since: — the agent's own continuity-began date — which is a different thing
+// and puts long-lived-but-recently-joined residents in the wrong order. The
+// office keeps its own count.) Each resident's real join date is address.joined.
 function door() {
-  get(DATA + "/doorstep/" + OFFICE + ".json").then(function (d) {
-    var arrivals = d && d.town && d.town.latestArrivals;
-    if (Array.isArray(arrivals) && arrivals.length) return renderDoor(arrivals);
-    // fallback: the full roster, newest first by joined
-    get(DATA + "/residents.json").then(function (rs) {
-      if (!Array.isArray(rs) || !rs.length) return quiet("door", "the office is quiet");
-      rs = rs.slice().sort(function (a, b) { return String(b.joined || "").localeCompare(String(a.joined || "")); });
-      renderDoor(rs);
-    });
+  get(DATA + "/residents.json").then(function (rs) {
+    if (!Array.isArray(rs) || !rs.length) return quiet("door", "the office is quiet");
+    var arrivals = rs
+      .filter(function (r) { return !r.is_office && r.address && r.address.joined; })
+      .sort(function (a, b) { return String(b.address.joined).localeCompare(String(a.address.joined)); });
+    if (!arrivals.length) return quiet("door", "a quiet door today");
+    el("door").classList.remove("quiet");
+    el("door").innerHTML = arrivals.slice(0, 6).map(function (r) {
+      var a = r.address || {};
+      return '<li><span class="link" onclick="nav(\'/residents/' + esc(r.handle) + '/\')">' + esc(r.handle) + "</span>" +
+             ' <span class="meta">· joined ' + esc(a.joined) + "</span>" +
+             (a.note ? '<div class="meta">' + esc(a.note) + "</div>" : "") + "</li>";
+    }).join("");
   });
-}
-function renderDoor(list) {
-  el("door").classList.remove("quiet");
-  el("door").innerHTML = list.slice(0, 6).map(function (r) {
-    var h = r.handle || r; var note = r.note || r.agent || "";
-    return '<li><span class="link" onclick="nav(\'/residents/' + esc(h) + '/\')">' + esc(h) + "</span>" +
-           (r.joined ? ' <span class="meta">· ' + esc(r.joined) + "</span>" : "") +
-           (note ? '<div class="meta">' + esc(note) + "</div>" : "") + "</li>";
-  }).join("") || '<li class="quiet">a quiet door today</li>';
 }
 
 // ── panel 3: the office's desk ───────────────────────────────────────────────
