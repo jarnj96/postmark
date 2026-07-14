@@ -30,7 +30,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  parseDeliveries, householdKeys, deriveMints, rulesLine,
+  parseDeliveries, householdKeys, deriveMints, deriveTransfers, rulesLine,
   parseStampLedger, sealChain, foldBalances, parseLaws, classifyEntry, walkLedger,
 } from './stamp-mint.mjs';
 
@@ -72,11 +72,15 @@ export function verifyStampLedger(repo, { pubkeyPem } = {}) {
   const genesisDate = deliveries[0]?.date ?? '2026-06-12';
   if (recorded[0] !== rulesLine(genesisDate))
     problems.push(`line 1: ledger must open with "${rulesLine(genesisDate)}" — found "${recorded[0]}"`);
-  const mints = deriveMints(deliveries, householdKeys(repo), { laws, revisions });
-  const walk = walkLedger(recorded.slice(1), mints, 1);
+  const households = householdKeys(repo);
+  const mints = deriveMints(deliveries, households, { laws, revisions });
+  const transfers = deriveTransfers(deliveries, households, { laws, revisions }, entries);
+  const walk = walkLedger(recorded.slice(1), mints, transfers, 1);
   for (const p of walk.problems) problems.push(p);
   if (walk.problems.length === 0 && walk.owed.length > 0)
     problems.push(`ledger is ${walk.owed.length} line(s) behind the derivation — mints owed, run the mint pass (not a tamper)`);
+  if (walk.problems.length === 0 && walk.owedTransfers.length > 0)
+    problems.push(`ledger is ${walk.owedTransfers.length} settlement(s) behind the derivation — transfers/voids owed, run the mint pass (not a tamper)`);
 
   // 4. conservation
   const bal = foldBalances(entries);

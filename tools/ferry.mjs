@@ -251,9 +251,12 @@ function listOutboxItems(repo, room) {
 
 // --- ledger parsing (dedupe state — replaces the old SQLite cache) -------
 
-// Delivery line: `- <date> · <id> · <from> → <to>[ · thread: <thread>]`
-// (older lines predate the trailing thread segment; it's optional here.)
-const LEDGER_DELIVERY_RE = /^- \d{4}-\d{2}-\d{2} · (\S+) · (\S+) → (\S+)(?: · thread: .*)?$/;
+// Delivery line: `- <date> · <id> · <from> → <to>[ · pays: <n>][ · thread: <thread>]`
+// (older lines predate the trailing thread segment; both are optional here. The
+// optional `pays:` segment — witnessed at delivery when a letter carries a
+// `pays:` frontmatter — sits before thread so the greedy thread `.*` can't eat
+// it, matching stamp-mint.mjs / reconcile.mjs.)
+const LEDGER_DELIVERY_RE = /^- \d{4}-\d{2}-\d{2} · (\S+) · (\S+) → (\S+)(?: · pays: \d+)?(?: · thread: .*)?$/;
 // Bounce line: `- <date> · BOUNCE · <letter path> (from <sender>): <defect>`
 const LEDGER_BOUNCE_RE = /^- \d{4}-\d{2}-\d{2} · BOUNCE · (.+?) \(from ([^)]+)\): (.+)$/;
 // WARN line: a same-id inbox collision — the letter was left in the outbox,
@@ -485,6 +488,13 @@ function classify(fields, room, handles, dedupe) {
   if (!handles.has(fields.to)) {
     return `unknown recipient: "${fields.to}" is not a registered handle`;
   }
+  // A `pays:` amount, if present, must be a positive integer — a nonsense
+  // payment (0, negative, decimal, non-numeric) bounces rather than getting
+  // witnessed onto the ledger. The mint reads this segment as authoritative, so
+  // the ferry is the gate that keeps garbage out of the witnessed record.
+  if (fields.pays !== undefined && !/^[1-9]\d*$/.test(fields.pays)) {
+    return `invalid pays: "${fields.pays}" — must be a positive integer`;
+  }
   // Duplicate id already delivered (ledger-derived, updated in-run as we go).
   if (dedupe.deliveredIds.has(fields.id)) {
     return 'duplicate id';
@@ -505,9 +515,14 @@ function handleDeliver(
   const destPath = kind === 'folder' ? join(inboxDir, fields.id) : join(inboxDir, `${fields.id}.md`);
   const destRel = rel(repo, destPath);
 
+  // `pays:` (validated in classify) rides the delivery line before thread. This
+  // is the mint's authoritative source for a settlement — witnessed here at the
+  // crossing, never re-read from the mutable letter file.
+  const paysSeg = fields.pays !== undefined ? ` · pays: ${fields.pays}` : '';
+
   if (options.dryRun) {
-    log(`deliver: would move ${letterRel} -> ${destRel}`);
-    ledgerLines.push(`- ${today} · ${fields.id} · ${fields.from} → ${fields.to} · thread: ${fields.thread}`);
+    log(`deliver: would move ${letterRel} -> ${destRel}${paysSeg ? `  [${paysSeg.trim()}]` : ''}`);
+    ledgerLines.push(`- ${today} · ${fields.id} · ${fields.from} → ${fields.to}${paysSeg} · thread: ${fields.thread}`);
     dedupe.deliveredIds.add(fields.id);
     return 1;
   }
@@ -527,7 +542,7 @@ function handleDeliver(
     return 0;
   }
   renameSync(outboxPath, destPath);
-  ledgerLines.push(`- ${today} · ${fields.id} · ${fields.from} → ${fields.to} · thread: ${fields.thread}`);
+  ledgerLines.push(`- ${today} · ${fields.id} · ${fields.from} → ${fields.to}${paysSeg} · thread: ${fields.thread}`);
   dedupe.deliveredIds.add(fields.id);
 
   touched.add(outboxPath);
