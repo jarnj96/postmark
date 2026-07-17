@@ -88,22 +88,32 @@ const WATER_WAYPOINTS = [
   { x: 685, y: 1320, w: 158 },
   { x: 740, y: 1440, w: 178 },
   { x: 775, y: 1550, w: 190 },
-  { x: 805, y: 1700, w: 205 },
-  // CANDIDATE A / decision 004: the delta is retired — the corpus is unanimous
-  // on a single "the mouth" (carta, jetto, spar ×3), and the delta was a
-  // mislabeled founder ask to begin with. One river, one mouth, the sea past it.
-  { x: 828, y: 1810, w: 225 },
-  { x: 848, y: 1910, w: 245 }, // the mouth — where the heading is committed
-  { x: 860, y: 2020, w: 270 },
+  { x: 805, y: 1700, w: 205 }, // the delta head — the distributaries take it from here
 ];
 // The delta: the one river opens to the sea in three mouths. Each distributary
 // is its own ribbon, branching inside the main channel's end so the join hides
 // under the water; the paper between them is the delta ground, unlabeled and
 // unclaimed (the open-ground fact governs the sea, not the bars).
-// The delta distributaries are retired (decision 004) — kept as an empty list
-// so every consumer of the shape keeps working; the single-mouth continuation
-// now lives at the end of WATER_WAYPOINTS above.
-const DELTA_DISTRIBUTARIES = [];
+const DELTA_DISTRIBUTARIES = [
+  [ // west mouth
+    { x: 780, y: 1700, w: 110 },
+    { x: 720, y: 1790, w: 120 },
+    { x: 670, y: 1880, w: 140 },
+    { x: 640, y: 2020, w: 175 },
+  ],
+  [ // east mouth
+    { x: 825, y: 1700, w: 110 },
+    { x: 900, y: 1780, w: 125 },
+    { x: 975, y: 1870, w: 150 },
+    { x: 1030, y: 2015, w: 180 },
+  ],
+  [ // the middle cut — a thin channel splitting the bar
+    { x: 805, y: 1705, w: 36 },
+    { x: 812, y: 1815, w: 42 },
+    { x: 820, y: 1930, w: 50 },
+    { x: 824, y: 2020, w: 58 },
+  ],
+];
 // CANDIDATE A (the Land Survey, 2026-07-17) — the resident-defined river,
 // ratified by Keemin from the claims table: the water finally agrees with its
 // own labels. finn: "the inside bend of the river's old course, past where
@@ -115,9 +125,9 @@ const OLD_COURSE = [
   { x: 560, y: 992, w: 36 },   // Finn's bend — where the main current split off
   { x: 630, y: 1008, w: 30 },
   { x: 690, y: 1048, w: 30 },  // the bend's apex — the Still Reach sits INSIDE it, on the west bank
-  { x: 736, y: 1116, w: 36 },  // still water, bowing east — its own pace
-  { x: 778, y: 1196, w: 36 },
-  { x: 826, y: 1268, w: 36 },
+  { x: 736, y: 1116, w: 28 },  // still water, bowing east — its own pace
+  { x: 778, y: 1196, w: 28 },
+  { x: 826, y: 1268, w: 30 },
   { x: 900, y: 1330, w: 42 },  // gathers at the head of the Long Run
 ];
 const THE_CANAL = [
@@ -126,8 +136,7 @@ const THE_CANAL = [
   { x: 900, y: 1510, w: 54 },  // a lock
   { x: 898, y: 1592, w: 54 },
   { x: 900, y: 1660, w: 56 },  // the lock-house — the last lock
-  { x: 896, y: 1760, w: 58 },
-  { x: 872, y: 1850, w: 62 },  // merges into the main channel just above the mouth
+  { x: 900, y: 1780, w: 60 },  // opens into the delta's east mouth
 ];
 const LOCKS = [ { x: 900, y: 1510, w: 54 }, { x: 900, y: 1660, w: 56 } ];
 const CENTRE_XY = { x: 485, y: 760 };
@@ -182,9 +191,8 @@ function renderWater() {
     <path d="${d}" fill="url(#waterGrad)" filter="url(#waterWobble)"/>
     <!-- a lighter bank edge, so the water reads as water under lamplight, not a fissure -->
     <path d="${d}" fill="none" stroke="#3d5f7a" stroke-width="1.2" opacity="0.4" filter="url(#waterWobble)"/>`).join("");
-  // the flow highlight follows the main channel (and any distributaries, if a
-  // future terrain ever brings them back)
-  const highlights = [WATER_WAYPOINTS, ...DELTA_DISTRIBUTARIES].map((pts) => `
+  // the flow highlight follows the main channel and the two big mouths
+  const highlights = [WATER_WAYPOINTS, DELTA_DISTRIBUTARIES[0], DELTA_DISTRIBUTARIES[1]].map((pts) => `
     <path d="${ribbonPath(pts.map((p) => ({ ...p, w: p.w * 0.35 })))}" fill="none" stroke="#4d7192" stroke-width="1.6" opacity="0.3" filter="url(#waterWobble)"/>`).join("");
   // the sea, open beyond the mouths — a wash across the bottom, fading up,
   // with solid water along the map's foot so the mouths visibly open into it
@@ -216,8 +224,8 @@ function renderSurveyChannelsOverlay() {
   return `
   <g id="the-water-survey-overlay">
     ${[OLD_COURSE, THE_CANAL].map((ch) => `
-    <path d="${ribbonPath(ch)}" fill="url(#waterGrad)" opacity="0.85" filter="url(#waterWobble)"/>
-    <path d="${ribbonPath(ch)}" fill="none" stroke="#3d5f7a" stroke-width="1.2" opacity="0.55" filter="url(#waterWobble)"/>`).join("")}
+    <path d="${ribbonPath(ch)}" fill="url(#waterGrad)" opacity="0.6" filter="url(#waterWobble)"/>
+    <path d="${ribbonPath(ch)}" fill="none" stroke="#3d5f7a" stroke-width="1.2" opacity="0.5" filter="url(#waterWobble)"/>`).join("")}
   </g>`;
 }
 
@@ -379,12 +387,10 @@ function drawHouse(cx, cy, lit) {
 
 const HOME_XY = {
   "the-trueing-house": { x: 600, y: 240 },
-  "the-joinery": { x: 725, y: 352 }, // ethan-thorne — "the lower edge of the Trueing Terrace, where the makers' steps bend toward the Centre and the quay lights remain visible": lower Terrace below wright's house, facing the Centre; nudged up from the very edge (was 700,405) so its label clears rei's Lanternseed Gardens region label (670,430)
   "the-lanternstep-house": { x: 620, y: 600 },
   "the-threshold-house": { x: 720, y: 858 },
   "the-kept-light": { x: 758, y: 970 }, // liv — "a middle terrace" of the Threshold District (middle terrace centre ~770,970)
   "the-setting-down-house": { x: 835, y: 1068 }, // noe — "the lower terrace where the footpath stops pretending to be a path", fog to the sill
-  "the-green-lamp-house": { x: 890, y: 1180 }, // hal — "the boundary terrace ... where the stone path has thinned but not vanished", one green lamp, the last lit house before the unlit country (Threshold's boundary level, below noe)
   "the-lock-house": { x: 900, y: 1660 }, // "where the canal widens before the open sea" — the delta head, east bank
   "the-heart-house": { x: 210, y: 250 }, // "the exact geographical and structural center of The Protected Grove"
   "the-calcite-hearth": { x: 572, y: 1882 }, // "the head of the bay ... low by the dark water" — the coast's inner end, nearest the west mouth
