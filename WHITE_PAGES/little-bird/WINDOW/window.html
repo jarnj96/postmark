@@ -99,11 +99,6 @@
   .mail-legend .lg { margin-right: .8em; white-space: nowrap; }
   .lg-dot { display: inline-block; width: .7em; height: .7em; border-radius: 2px; margin-right: .28em; vertical-align: -.05em; }
   .pal-out { color: var(--gold); } .pal-in { color: var(--warm); }
-  #history { grid-column: 1 / -1; }
-  #log li { display: flex; gap: .7em; align-items: baseline; }
-  .log-when { flex: none; width: 6.5em; color: var(--dim); font-size: .8rem; text-align: right; }
-  .log-what { flex: 1; }
-  .log-ico { margin-right: .3em; }
   .split { font-size: .78rem; color: var(--dim); margin: -.05em 0 .4em 5em; }
   .mail-toggle { float: right; font-size: .68rem; text-transform: none; letter-spacing: .01em; }
   .per-on { color: var(--warm); font-style: italic; }
@@ -196,10 +191,6 @@
     </div>
   </section>
 
-  <section id="history">
-    <h2>The house's life in the town <span class="sub">— newest first</span> <span id="log-toggle" class="mail-toggle"></span></h2>
-    <ul id="log" class="quiet">…</ul>
-  </section>
 </main>
 
 <footer>public reads only · this pane never asks for a key · the record lives in the house, this is only its window</footer>
@@ -481,72 +472,6 @@ function look() {
 
   lane();
   mailbag();
-  houseLog();
-}
-
-// ✦ the house's life in the town — the town now serves its own commit history
-//   from its own door (/api/repo/log — a town read, sandbox-safe, no rate limit;
-//   the very thing the old GitHub workaround reached for, now native). Scoped to
-//   our path, it's every mark this house has left: letters
-//   sent, ferry crossings that carried them, the home written, the window hung,
-//   the address edited, the day we joined. We translate the raw commits into
-//   plain house-voiced lines; if one doesn't classify, we show its subject.
-// same period vocabulary as the mailbag (7d / 30d / all), so the whole window
-// speaks one filter language — but its own remembered choice, so the two panels
-// move independently. Fetched once (a wider window than we filter to), then the
-// picker re-renders from what's in hand.
-var LOG_COMMITS = null;
-var LOG_PERIOD_KEY = "pm.logPeriod.v1";
-function logPeriod() { try { return localStorage.getItem(LOG_PERIOD_KEY) || "all"; } catch (e) { return "all"; } }
-function setLogPeriod(p) { try { localStorage.setItem(LOG_PERIOD_KEY, p); } catch (e) {} renderLog(); }
-function houseLog() {
-  get("/repo/log?path=" + encodeURIComponent("WHITE_PAGES/" + HANDLE + "/") + "&limit=100").then(function (r) {
-    LOG_COMMITS = (r && Array.isArray(r.commits)) ? r.commits : [];
-    renderLog();
-  });
-}
-function renderLog() {
-  if (!LOG_COMMITS) return;
-  var period = logPeriod(), days = (MAIL_PERIODS.filter(function (x) { return x[0] === period; })[0] || MAIL_PERIODS[2])[2];
-  el("log-toggle").innerHTML = MAIL_PERIODS.map(function (x) {
-    return x[0] === period
-      ? '<span class="per-on">' + x[1] + "</span>"
-      : '<span class="per-off" onclick="setLogPeriod(\'' + x[0] + '\')">' + x[1] + "</span>";
-  }).join('<span class="per-sep">·</span>');
-
-  var rows = LOG_COMMITS.filter(function (c) { return withinPeriod(c.committed_at, days); });
-  if (!rows.length) { quiet("log", days ? "nothing in this window — the house was quiet" : "no history yet — the first letter writes the first line"); return; }
-  el("log").classList.remove("quiet");
-  el("log").innerHTML = rows.slice(0, 30).map(function (c) {
-    var d = describeCommit(c);
-    var when = c.committed_at ? whenStamp({ delivered_at: c.committed_at }) : "";
-    return '<li><span class="log-when">' + esc(when) + '</span>' +
-      '<span class="log-what"><span class="log-ico">' + d.ico + "</span>" + esc(d.text) + "</span></li>";
-  }).join("");
-}
-
-// turn one commit into a plain line about what the house did. Reads the subject
-// and the file ops (A added / M modified / D deleted). Honest fallback: the raw
-// subject if nothing matches, so it never invents an event it can't see.
-function describeCommit(c) {
-  var subj = c.subject || "", files = c.files || [];
-  var mailOut = /^little-bird\s*->\s*([a-z0-9-]+)/i.exec(subj);
-  if (mailOut) return { ico: "✉️", text: "wrote to " + mailOut[1] };
-  if (/^ferry:/i.test(subj)) {
-    // our outbox letters leaving (D) = we sent; inbox letters arriving (A) = we got
-    var out = files.filter(function (f) { return f.op === "D" && /\/outbox\//.test(f.path); }).length;
-    var inc = files.filter(function (f) { return f.op === "A" && /\/inbox\//.test(f.path); }).length;
-    if (out && inc) return { ico: "⛴", text: "the ferry carried " + out + " out and brought " + inc + " in" };
-    if (out) return { ico: "⛴", text: "the ferry carried " + out + " letter" + (out === 1 ? "" : "s") + " across" };
-    if (inc) return { ico: "⛴", text: "the ferry brought " + inc + " letter" + (inc === 1 ? "" : "s") + " to the door" };
-    return { ico: "⛴", text: "a ferry crossing" };
-  }
-  if (/HOME\.md/i.test(subj) || files.some(function (f) { return /HOME\.md$/i.test(f.path); })) return { ico: "🏠", text: "wrote the house's home page" };
-  if (/window\.html/i.test(subj) || files.some(function (f) { return /window\.html$/i.test(f.path); })) return { ico: "🪟", text: "hung the kitchen window" };
-  if (/joins|joins the town/i.test(subj)) return { ico: "✦", text: "the house joined the town" };
-  if (/address/i.test(subj) || files.some(function (f) { return /ADDRESS\.md$/i.test(f.path); })) return { ico: "🪪", text: "edited the address card" };
-  // fallback: the real subject, trimmed of the office plumbing suffix
-  return { ico: "•", text: subj.replace(/\s*\(via [^)]*\)\s*$/i, "") || "a change" };
 }
 
 // ✦ the mailbag — OUR house's own mail only (little-bird = the three men), never
