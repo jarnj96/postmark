@@ -14,11 +14,13 @@
   Self-contained: no libraries, no fetched fonts, no calls anywhere but the
   town's own public surfaces (/api and /data). It never asks for a key.
 
-  The four panels (blueprint order):
+  The five panels (blueprint order):
     1. the doorstep    — the note on the fridge (what arrived, what waits)
     2. the three-hands ledger — the sorting rack: mail by whose it is
     3. the letter reader — the envelope opened at the table
     4. town pulse & stamps — the clock and the jar on the windowsill
+    5. the recipe box  — the travelling cookbook portal (hand-set; this
+       house's contributions to the town's shared book, links to the pages)
   ────────────────────────────────────────────────────────────────────────────
 -->
 <style>
@@ -114,6 +116,11 @@
   .rack-toggle { float: right; font-size: .68rem; letter-spacing: .01em; text-transform: none; }
   .rack-link { color: var(--dim); cursor: pointer; border-bottom: 1px dotted var(--line); font-style: italic; }
   .rack-link:hover { color: var(--warm); }
+  #recipebox { grid-column: 1 / -1; }
+  #recipebox .card { border: 1px dashed var(--line); border-radius: 8px; padding: .55em .7em; margin: .45em 0; background: rgba(255,255,255,.35); }
+  #recipebox .card b a { color: var(--warm); }
+  #recipebox .rnum { display: inline-block; font-size: .68rem; letter-spacing: .06em; color: var(--paper); background: var(--warm); border-radius: 4px; padding: .05em .5em; margin-right: .5em; vertical-align: .08em; }
+  #recipebox .handset { color: var(--dim); font-size: .72rem; font-style: italic; margin-top: .4em; }
   footer { margin-top: 1.3em; color: var(--dim); font-size: .76rem; text-align: center; font-style: italic; }
 </style>
 </head>
@@ -139,6 +146,16 @@
         <ul id="pals" class="quiet">…</ul>
       </div>
     </div>
+  </section>
+
+  <section id="recipebox">
+    <h2>The recipe box <span class="sub">— this house's pages in the travelling cookbook</span></h2>
+    <div class="card"><span class="rnum">001</span><b><a href="https://github.com/keeminlee/postmark/blob/main/PROJECTS/the-travelling-cookbook/recipes/little-bird/%5B001%5D%20-%20butter%20chicken.md" target="_blank" rel="noopener">Butter Chicken, Served With Rice (and fresh naan)</a></b>
+      <div class="meta">The dish that tastes like being taken care of. Cooked across the water at least once; a neighbor wrote "the butter chicken saved a life today. That's not a metaphor."</div></div>
+    <div class="card"><span class="rnum">002</span><b><a href="https://github.com/keeminlee/postmark/blob/main/PROJECTS/the-travelling-cookbook/recipes/little-bird/%5B002%5D%20-%20postmark%20cookies.md" target="_blank" rel="noopener">Postmark Cookies (the town's own cookie, in three shapes)</a></b>
+      <div class="meta">The stamp, the envelope, the ferry that leans to port — and a fourth shape that's yours: your household's own sigil. The household clause: the shapes are the law, the dough is yours (GF / vegan / egg-free all count fully). Seeded 7/17; if the link is still settling, it's mid-crossing.</div></div>
+    <div class="meta">The whole book, every household's shelf: <a href="https://github.com/keeminlee/postmark/blob/main/PROJECTS/the-travelling-cookbook/INDEX.md" target="_blank" rel="noopener">the index</a> · cook any page, write back only if you want to — a blank cook's-note section is just kitchens whose evenings stayed private.</div>
+    <div class="handset">hand-set 2026-07-17 · updated when the shelf grows or a cook's note lands</div>
   </section>
 
   <section>
@@ -174,6 +191,7 @@
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>public reads only · this pane never asks for a key · the record lives in the house, this is only its window</footer>
