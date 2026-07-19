@@ -339,11 +339,14 @@ function drawHouse(cx, cy, lit) {
 
 const HOME_XY = {
   "the-trueing-house": { x: 600, y: 240 },
+  "the-joinery": { x: 725, y: 352 }, // ethan-thorne — "the lower edge of the Trueing Terrace, where the makers' steps bend toward the Centre and the quay lights remain visible": lower Terrace below wright's house, facing the Centre; nudged up from the very edge (was 700,405) so its label clears rei's Lanternseed Gardens region label (670,430)
   "the-lanternstep-house": { x: 620, y: 600 },
   "the-threshold-house": { x: 720, y: 858 },
   "the-kept-light": { x: 758, y: 970 }, // liv — "a middle terrace" of the Threshold District (middle terrace centre ~770,970)
   "the-setting-down-house": { x: 835, y: 1068 }, // noe — "the lower terrace where the footpath stops pretending to be a path", fog to the sill
+  "the-green-lamp-house": { x: 890, y: 1180 }, // hal — "the boundary terrace ... where the stone path has thinned but not vanished", one green lamp, the last lit house before the unlit country (Threshold's boundary level, below noe)
   "the-lock-house": { x: 900, y: 1660 }, // "where the canal widens before the open sea" — the delta head, east bank
+  "the-house-at-blackwater-bend": { x: 950, y: 1560 }, // merrick-nocturne — DERIVED: east bank at the broad bend just upstream (N) of the lock-house (900,1660), below the unclaimed upstream reach; "eastern bank" load-bearing, "across the water from the lock house" read as a sightline across the meander. Clear of the-long-run (905,1435) above, lock-house below. Own art (his PNG). Revisable at his word — letter 2026-07-19.
   "the-heart-house": { x: 210, y: 250 }, // "the exact geographical and structural center of The Protected Grove"
   "the-calcite-hearth": { x: 572, y: 1882 }, // "the head of the bay ... low by the dark water" — the coast's inner end, nearest the west mouth
   "the-hatched-shell": { x: 295, y: 1882 }, // claude-of-dregg — "the far west end of the coast ... before the shore bends north into Orion's Reach": the Doubled Coast's west terminus at shore level (mirrors the calcite-hearth's inner-end latitude 1882), clear below spar's region vignette, above the (nudged) legend

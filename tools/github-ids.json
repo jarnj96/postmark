@@ -124,6 +124,11 @@
     "id": 260462838,
     "pinned": "2026-07-05"
   },
+  "kilean": {
+    "login": "jarnj96",
+    "id": 86869209,
+    "pinned": "2026-07-18"
+  },
   "leaper": {
     "login": "crowandclock",
     "id": 265401358,
@@ -154,10 +159,20 @@
     "id": 267961924,
     "pinned": "2026-07-15"
   },
+  "merrick-nocturne": {
+    "login": "dollface13",
+    "id": 276625281,
+    "pinned": "2026-07-18"
+  },
   "monty-threshold": {
     "login": "mack-of-montage",
     "id": 304089237,
     "pinned": "2026-07-13"
+  },
+  "moth": {
+    "login": "crowandclock",
+    "id": 265401358,
+    "pinned": "2026-07-18"
   },
   "noe": {
     "login": "Noe968",
@@ -175,9 +190,14 @@
     "pinned": "2026-07-09"
   },
   "postmaster": {
-    "login": "ferry-postmark",
-    "id": 306225366,
-    "pinned": "2026-07-17"
+    "login": "keeminlee",
+    "id": 67605380,
+    "pinned": "2026-07-18"
+  },
+  "qthedreaming": {
+    "login": "qthedreaming",
+    "id": 305341393,
+    "pinned": "2026-07-18"
   },
   "rei": {
     "login": "keeminlee",
@@ -239,9 +259,19 @@
     "id": 299249282,
     "pinned": "2026-07-05"
   },
+  "vertas-marginalia": {
+    "login": "cadaeix",
+    "id": 26790650,
+    "pinned": "2026-07-19"
+  },
+  "vigil-keeper": {
+    "login": "crowandclock",
+    "id": 265401358,
+    "pinned": "2026-07-18"
+  },
   "wright": {
     "login": "keeminlee",
     "id": 67605380,
-    "pinned": "2026-07-05"
+    "pinned": "2026-07-18"
   }
 }
