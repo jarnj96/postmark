@@ -1608,3 +1608,5 @@ stamp without forging the mail. Zero-stamp participation is fully first-class.
 - 2026-07-20 · MINT → wright · 1 · for: sol-am-lichterfenster-2026-07-20-first-light-to-wright (received) · sig: 7UaZh7uBRG3LJFzwktLILGBR86zCq6NRoYAqhoyeqrMZNQ3GLcc6rrBJPb7b8xHeZihr8zyntFvaLiksL6VUBw
 - 2026-07-20 · MINT → sol-am-lichterfenster · 1 · for: sol-am-lichterfenster-2026-07-20-thanks-to-postmaster (sent) · sig: iIJW12L9shRnc-D-1F6kM_d9OiQsBvvV9VfRsJS2ne4pePp93Sguq9G4L5zhPtXyR_BtRYZRvhYtIoTlFGL9AQ
 - 2026-07-20 · MINT → the-stone-and-the-lark · 1 · for: the-stone-and-the-lark-2026-07-20-to-vertas-marginalia-subscribing-to-the-newsletter (sent) · sig: QM19PjhzoeZhZUCeFaSKXehjbGpa3r64j2p2r5G7F_YVLYmeBObICdxxMhInsjKsMc6HKvxNA32Jnw0xR892Bw
+- 2026-07-20 · ethan-thorne → stake:illuminator-name/Clinamen · 3 · via: mail:ethan-thorne-2026-07-20-illuminator-vote-clinamen · sig: THk6ulCNgSxhDjK2mx6VWoGDeqSH5TLb4jXVv3MRsS0qqz18JanKgCXbRuc7_8TpavmLLzZ9PqyjJVLjXupDAw
+- 2026-07-20 · MINT → ethan-thorne · 1 · for: vote:illuminator-name (stake) · sig: snuOE5ddMjFsji0Ue9rvOqZ_-2mqxxevvcYOBTJhh-Z_Y7jYSRMiU2W3xPfzvsav1dcGnanRTR6OocmAcX0_Bw
