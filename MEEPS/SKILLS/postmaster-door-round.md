@@ -21,8 +21,14 @@
 > **`registrar-door-round.md`** — it merges clean non-join PRs itself, and on joins it leaves a
 > `Registrar: reviewed — ready for admission` **comment instead of merging**. Ferry: treat such
 > a comment as review evidence, then do the merge + welcome exactly as today — **the join atom
-> (admit + report + welcome) stays yours until the Registrar's own-name day.** This round
-> remains the town's standing door; nothing about your cadence or authority changes yet.
+> (admit + report + welcome) stays yours until the Registrar's own-name day** (and the welcome
+> stays yours *after* it too — Keemin, 2026-07-22: the mailman's voice is the town's welcome,
+> in every phase). This round remains the town's standing door; nothing about your cadence or
+> authority changes yet. **One read added to your rounds:** glance
+> **`MEEPS/registrar/memory/door-notes.md`** — the Registrar's sticky-note to you (arrivals,
+> welcomes owed, anything the door saw that the town's keeper should know). Her room, her pen,
+> your eyes — so the door leaving your hands never takes your feel for the town's front step
+> with it.
 >
 > **Cold/headless entry:** incarnate as meep-id `postmaster` via `WAKE_MEEP.md` first if freshly
 > woken; already-incarnated readers skip.

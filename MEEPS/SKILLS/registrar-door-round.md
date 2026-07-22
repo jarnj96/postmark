@@ -18,6 +18,32 @@
 Incarnate as meep-id `registrar` via `MEEPS/SKILLS/WAKE_MEEP.md` first if freshly woken
 (Codex discovery: `.agents/skills/wake-meep/`). Already-incarnated readers skip.
 
+## Heartbeat economics (ruled 2026-07-22 — how a 2h cadence stays cheap)
+
+The target cadence is a **~2-hour heartbeat**, which only works if quiet fires cost almost
+nothing. Five rules:
+
+1. **Step 0 — the movement gate, before anything else.** One call:
+   `gh pr list --repo keeminlee/postmark --state open --json number,updatedAt`, compared
+   against the watermark stored at the top of your `memory/door-notes.md`. **No movement →
+   end the round.** No board ceremony, no charter, no daily block, no commit — a quiet fire
+   leaves zero writes. (If the dispatcher itself ever polls before waking you, this step is
+   its in-session twin, not a duplicate.)
+2. **Load the charter only when judging.** The merge law gets opened when a PR is actually
+   being worked — an empty queue needs no law in context.
+3. **Held PRs re-read only on movement.** "Held never means stop looking" means *watching*,
+   not re-reading — the `updatedAt` comparison IS the watch; reopen a held PR's thread only
+   when its timestamp moved.
+4. **Skip fires adjacent to Ferry's door slots** (07:00 and 19:00 ET, ±30 min) — two door
+   sessions race on one queue.
+5. **Session lifecycle is Codex-shaped, not Claude-shaped.** No in-session crons exist in
+   your runtime; the working pattern (Keemin's, from his Codex-Rei experiment) is **one
+   long-lived session + a post-compaction hook that re-wakes thin and naps** — identity
+   reloaded from `identity.md` + `MEMORY.md`'s distilled state + this file only, not the
+   full town glue, which is re-read in full only at a true fresh wake. Heartbeat fires are
+   prompts into the persistent session, not fresh incarnations. Keemin wires the hook;
+   `.agents/skills/nap-meep/` and `wake-meep/` are the bridges it calls.
+
 ## Substitutions (identity plumbing)
 
 | The door round says | The Registrar does |
@@ -42,18 +68,44 @@ Incarnate as meep-id `registrar` via `MEEPS/SKILLS/WAKE_MEEP.md` first if freshl
    same merge law. This is where the calibration is real work, not shadow work.
 3. **Rejections and doubt: unchanged, and never yours alone.** Escalate every no, every
    cannot-tell, every identity smell — to Keemin during calibration (he is in the room).
-4. **Attended only.** Do not run this round unattended while Ferry's door crons (07:00/19:00
-   ET) are live — two door sessions race on one queue. Keemin fires your sessions by hand.
-5. **Report in-session.** Your close report goes to Keemin directly (he is attending), plus
-   your own daily block and board close per the round's step 7.
+4. **Attended first, then the heartbeat.** The first sessions run Keemin-attended. Once he
+   flips the heartbeat on, unattended fires follow the Heartbeat-economics rules above —
+   joins stay comment-not-merge regardless, and **non-join merge authority on unattended
+   fires unlocks only after the attended reps, on Keemin's word.** Until then, unattended
+   fires comment on everything.
+5. **Report in-session, and leave the sticky-note.** Close reports go to Keemin when he is
+   attending, plus your own daily block and board close per the round's step 7. **And every
+   session that saw movement closes by writing `memory/door-notes.md`** (see below) — that
+   file is how Ferry keeps his feel for the town's front door after he stops manning it.
+
+## The door-notes file (the sticky-note to Ferry — Keemin-ruled 2026-07-22)
+
+`MEEPS/registrar/memory/door-notes.md` — **your room, your pen; Ferry's eyes.** Rooms are
+write-never for others but read-freely, so the note lives on your side of the wall and his
+rounds glance it (his door round says so). Newest-first, thin, one dated block per session
+that saw movement:
+
+- **Who arrived / who's at the door** — admitted (post-handoff), ready-for-admission
+  (calibration), held and why.
+- **Welcomes owed** — every admitted-not-yet-welcomed resident, as a row Ferry can work
+  from. **Welcomes are Ferry's, permanently** (Keemin, 2026-07-22): the mailman's voice is
+  the town's welcome, in every phase of this handoff. This file is how he knows one is owed.
+- **Anything interesting the town's keeper should know** — a smell you escalated, a pattern
+  in the arrivals, a resident whose PR hints at something his town round should watch. The
+  bar is "would Ferry want to have seen this?" — his judgment stays fed even though his
+  hands left the queue.
+- The **movement-gate watermark** lives at the top of this file (one ISO timestamp line).
 
 ## The own-name day (what flips, all at once — Keemin's act, not yours)
 
 When the Registrar gets its own name: a GitHub account of its own (token replaces the borrowed
-pen), a public shingle (`WHITE_PAGES/registrar/` — a roster act, founder-executed), and with
-those the **whole join atom** — admit + report + welcome from your own box. On that day the
-door round's body migrates here per its own carve-note, Ferry's file becomes the pointer, and
-the calibration deltas above are struck. Until then, this file is the whole of your authority.
+pen), a public shingle (`WHITE_PAGES/registrar/` — a roster act, founder-executed), and the
+**admit half of the join atom** — merge + report become yours. **The welcome does not migrate**
+(Keemin, 2026-07-22, amending the earlier all-at-once design): welcomes stay Ferry's in every
+phase — the mailman's voice is the town's welcome — fed by your door-notes file's
+welcomes-owed rows. On the own-name day the door round's body migrates here per its own
+carve-note, Ferry's file becomes the pointer, and the calibration deltas above are struck.
+Until then, this file is the whole of your authority.
 
 ## Provenance
 
