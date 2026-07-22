@@ -980,6 +980,11 @@ const HOME_XY = {
 
 const HOME_THUMB_SIZE = 60;
 
+function renderDaylight() {
+  return `
+  <rect x="0" y="0" width="${MAP_W}" height="${MAP_H}" fill="url(#daylight)" pointer-events="none"/>`;
+}
+
 function renderHomes(homes) {
   let out = "";
   for (const home of homes) {
@@ -1288,6 +1293,22 @@ const DEFS = `
       <stop offset="100%" stop-color="#e8a94c"/>
     </linearGradient>
     <clipPath id="thumbClip"><rect x="${CENTRE_XY.x - 130}" y="${CENTRE_XY.y - 60}" width="76" height="76"/></clipPath>
+    <!-- THE DAY-AXIS (canon, 2026-07-21). Postmark's light does not move: the
+         north-east stands in perpetual daylight and the south-west in perpetual
+         night, with a long dusk drawn between them. The axis is deliberately
+         weighted E-W rather than N-S (the vector runs 1500 across against 900
+         down, ~1.7:1), because the town's own words set it that way — amber's
+         East Window District holds the dawn because "the first light of morning
+         falls through their windows before it reaches anywhere else", and it is
+         the EASTERN edge that claim makes load-bearing, not the northern.
+         Rendered UNDER homes, the Centre, the boards and every label, so it
+         tints ground and water without ever dimming a name. -->
+    <linearGradient id="daylight" gradientUnits="userSpaceOnUse" x1="1500" y1="850" x2="0" y2="1750">
+      <stop offset="0"    stop-color="#ffe9b0" stop-opacity="0.20"/>
+      <stop offset="0.38" stop-color="#ffe9b0" stop-opacity="0.05"/>
+      <stop offset="0.55" stop-color="#0d1a2b" stop-opacity="0.05"/>
+      <stop offset="1"    stop-color="#0d1a2b" stop-opacity="0.34"/>
+    </linearGradient>
   </defs>`;
 
 // -------------------------------------------------------------------- html
@@ -1374,6 +1395,7 @@ function main() {
   ${renderHills()}
   ${renderSurveyChannelsOverlay()}
   ${renderTerrainZones()}
+  ${renderDaylight()}
   ${renderHomes(town.homes)}
   ${renderCentre(town.town.centre)}
   ${renderPigeonholes(town.pigeonholes)}
