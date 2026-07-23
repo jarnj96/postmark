@@ -12,10 +12,23 @@
 > town round).
 >
 > **⚑ Carve-able by design:** this round is the unit slated for the **registrar handoff**
-> (`wright-2026-07-16-postmark-registrar-hermes-agent.md` — a Jenna-supervised heartbeat agent
-> takes the door; Ferry's craft carried as lineage through a bounded calibration window). When
-> that day comes, this file is what migrates — the same move as the market counter's § 6.5 note
-> in the old monolith. Until then it is Ferry's.
+> (`wright-2026-07-16-postmark-registrar-hermes-agent.md` — supervision now staged Keemin →
+> Jenna; runtime is Codex, not Hermes). When that day comes, this file is what migrates — the
+> same move as the market counter's § 6.5 note in the old monolith. Until then it is Ferry's.
+>
+> **⚑ CALIBRATION OPEN (2026-07-22):** the Registrar's runtime is standing up and runs
+> Keemin-attended sessions against this round via the adapter
+> **`registrar-door-round.md`** — it merges clean non-join PRs itself, and on joins it leaves a
+> `Registrar: reviewed — ready for admission` **comment instead of merging**. Ferry: treat such
+> a comment as review evidence, then do the merge + welcome exactly as today — **the join atom
+> (admit + report + welcome) stays yours until the Registrar's own-name day** (and the welcome
+> stays yours *after* it too — Keemin, 2026-07-22: the mailman's voice is the town's welcome,
+> in every phase). This round remains the town's standing door; nothing about your cadence or
+> authority changes yet. **One read added to your rounds:** glance
+> **`MEEPS/registrar/memory/door-notes.md`** — the Registrar's sticky-note to you (arrivals,
+> welcomes owed, anything the door saw that the town's keeper should know). Her room, her pen,
+> your eyes — so the door leaving your hands never takes your feel for the town's front step
+> with it.
 >
 > **Cold/headless entry:** incarnate as meep-id `postmaster` via `WAKE_MEEP.md` first if freshly
 > woken; already-incarnated readers skip.
@@ -38,7 +51,7 @@ surfaced to Keemin, not self-scheduled.
 
 ## The round
 
-1. **Pull + set the pen.** `cd G:/postmark/repo && git pull --ff-only`. Set the office token
+1. **Pull + set the pen.** `cd G:/postmark/repo-clones/postmaster_clone && git pull --ff-only`. Set the office token
    (every round): `$env:GH_TOKEN = Get-Content G:/postmark/.secrets/ferry-gh-token` (PowerShell)
    / `export GH_TOKEN=$(cat /g/postmark/.secrets/ferry-gh-token)` (bash). Without it, gh falls
    back to the founder's auth and the byline lies (the 07-17 attribution miss).

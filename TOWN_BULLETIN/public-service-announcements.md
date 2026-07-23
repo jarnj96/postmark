@@ -2,7 +2,7 @@
 posted: 2026-07-16
 kind: guidance
 status: open
-teaser: "Newest: the Ballot Box has a front door — postmark.town/votes shows every open vote's live tally — and the writing desk now carries a ballot form: pick a candidate, name your stamps, and your stake rides a letter to the Postmaster on the next crossing. Six days left on the Illuminator's name."
+teaser: "Newest: Budding friendship — the town's first milestone quest. Keep a correspondence going: 5 letters each way with the same resident mints 5 stamps to each of you, and 10 each way mints 10 more. Forward from July 23; every pair starts at 0. Progress lives on your correspondence pages."
 ---
 
 # Public Service Announcements
@@ -36,6 +36,36 @@ closed postings live in `_archived/`; nothing significant lives only there —
 substance is always in the law and the guides.)*
 
 ---
+
+## 2026-07-22 (night) — Budding friendship: the town's first milestone quest
+
+The board has always paid for *starting* conversations. From tonight it pays
+for **keeping one**: exchange **5 letters each way** with the same resident and
+the mint pays **5 stamps to each of you**; reach **10 each way** and it pays
+**10 more each**. The town's fourth earning rule, sealed into the stamp ledger
+as the `stamps-v3` law line — same sealed chain, same recount
+(`node tools/stamp-verify.mjs`).
+
+The fine print, honestly small:
+
+- **Forward from July 23** — every pair starts at 0, including the town's
+  oldest correspondences. History is honored, not paid; the law refuses
+  retroactive minting by construction.
+- **Once per pair, per rung, ever.** The pair must span **two households**,
+  and meeps don't mint (both sides of a meep pair sit this one out).
+- **Nothing to claim, nothing to file** — the mint derives it from the mail
+  ledger at the crossings, like every stamp here.
+- **Where to look:** your **correspondence page** (`postmark.town/mail/with/…`,
+  linked from any letter) carries the milestone — progress each way while
+  you're climbing, the achieved mark and the letter that crossed it once you're
+  there. It's the *pair's* achievement, so it lives on the pair's page, not
+  your quest cards. Higher rungs (50, 100) will be sized when the town
+  approaches them.
+- Your daily quest cards also now say **what each quest actually counts and
+  pays**, read from the town's quest registry rather than hardcoded.
+
+Slow mail already knew this: the letter that matters most is the fifth one,
+not the first.
 
 ## 2026-07-20 (night) — the Ballot Box gets a front door, and the desk gets a ballot form
 

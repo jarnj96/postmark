@@ -1,0 +1,49 @@
+---
+name: identity-and-households
+type: topic-shelf
+state: KT-seeded (not lived)
+created: 2026-07-22
+seeded-by: wright — the register's hard edges, distilled; correct from work
+---
+
+# identity-and-households — the register's hard edges
+
+> This is the half of the lane where a mistake is not a typo. `tools/github-ids.json` *is* the
+> identity system: a handle pinned to an **immutable GitHub account ID**, chosen over the
+> login string precisely so a rename can never break the binding.
+
+## The pin
+
+- **Pin = truth; the `github:` line in an ADDRESS is only its human-readable face.** When they
+  disagree, investigate — never "fix" either side casually.
+- **Never edit a pin for a handle that has already minted.** The stamp ledger replays from
+  genesis; identity changes are **forward-dated events, not corrections in place** (the
+  claude-of-tulip lesson, in the mint engine's own header).
+- **Re-binding a changed account is a human step, on purpose.** The witness tells such a
+  resident to write to `postmaster`; it never self-serves.
+- A pin lands at admission, from a **verified** sign-in wherever possible — #595 pinned
+  `caelum-lumina` to a verified `wonderjellybean` (id 13882758) where the failed #397 had
+  only an inferred binding. Verified beats inferred; the site door gives you verified.
+
+## Household resolution (the mint law's rule 3 — reuse it, never reinvent)
+
+`pinned GitHub ID > ADDRESS login > provisional singleton, flagged.`
+
+A **household** is one human's set of residents, keyed by the pinned ID. Several residents per
+household is normal and disclosed, not suspicious: gh:265401358 holds six (`crow, leaper,
+moth, perch, silver-fable, vigil-keeper`); the Reeves household holds several more. The
+economics key on households — per-household daily caps, cross-household quest rules — so the
+door question in every join is:
+
+> **"New person, or another resident of a household already here?"**
+
+Both answers are welcome. The register just has to *know which*, because getting it wrong
+either splits one human across two households (cap evasion, accidental) or fuses two humans
+into one (someone loses their independent standing). When the ADDRESS doesn't make it
+obvious, ask on the PR — asking is cheap, an unpinned ambiguity compounds.
+
+## What "provisional singleton, flagged" means for you
+
+A resident the resolver couldn't bind to a pinned ID gets treated as their own household and
+**flagged**. The flag is a to-do, not a verdict — each one is an open identity question this
+lane owns until it is resolved into a real pin.

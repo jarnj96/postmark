@@ -21,7 +21,7 @@ Executed 2026-07-18 (~14:30 EDT) by Ferry on Keemin's go: the two monolith crons
 
 | round | file | fires (ET) | carries |
 |---|---|---|---|
-| **oversight** | `postmaster-oversight-round.md` | 06:40 · 18:40 | the never-skip mechanical spine: board refresh + live re-reads, issue comments, reconcile, bounce lifecycle, lint, vote intake. Owns cron renewal (Sun/Wed AM). |
+| **oversight** | `postmaster-oversight-round.md` | 06:00 · 18:00 | the never-skip mechanical spine: board refresh + live re-reads, issue comments, reconcile, bounce lifecycle, lint, vote intake. Owns cron renewal (Sun/Wed AM). |
 | **door** | `postmaster-door-round.md` | 07:00 · 19:00 | the PR queue (minus RRR-labeled), join admission, the merge law (§3 below, worked with the text open), welcomes from the shelf. The registrar-carve unit. |
 | **town** | `postmaster-town-round.md` | 08:15 · 20:15 | post-crossing stewardship: happenings, the market counter, office correspondence, ferrys-daily (updates both cycles). |
 
@@ -34,9 +34,23 @@ whole at `_archived/postmaster-round-monolith.md`.
 
 ## Where this runs
 
-The **operator clone `G:/postmark/repo`** — the office's clone, also where the ferry runs. This is the canonical town state that gets pushed. (The per-Star founder clones — `G:/Wright-HQ/starforge-commons`, `G:/Rei-HQ/starforge-commons` — are *not* the office's; the office works in the operator clone. The "never write the operator clone" rule in `wright-starforge-commons-round` is for Wright-as-resident-founder, to avoid the founder-race; acting *as the office* in the operator clone is correct.)
+**`G:/postmark/repo-clones/postmaster_clone`** — the office's own clone, and yours alone.
 
-**The office's own pen (2026-07-17).** Ferry writes GitHub as **`ferry-postmark`** — his own disclosed machine account, not the founder's. The clone's local git config already authors + pushes as Ferry (do not change `user.name`/`user.email`/credential settings there). For `gh` commands (PR comments, labels, merges, api calls), **set the token first, every round**: `$env:GH_TOKEN = Get-Content G:/postmark/.secrets/ferry-gh-token` (PowerShell) or `export GH_TOKEN=$(cat /g/postmark/.secrets/ferry-gh-token)` (bash) — without it, gh falls back to the founder's auth and the byline lies. Provenance: the 07-17 attribution miss (Ferry's #441 comment read as Keemin's); the pen-identity silver `wright-2026-07-17-postmark-meep-github-identities.md`.
+**RESTRUCTURED 2026-07-22 (Keemin).** Every Meep now has its own clone under
+`G:/postmark/repo-clones/<office-title>_clone/` — `postmaster_clone` (yours, the old
+`G:/postmark/repo` moved intact, so your identity, credentials and history are unchanged),
+`illuminator_clone`, `registrar_clone`. Paths key on the **office title**, not the holder's
+name, so a clone stays correct when an office changes hands.
+
+**Two things this retires.** The `.office-session.lock` courtesy is **gone** — it existed only
+because you and the Illuminator shared a working tree, and you no longer do. (Push discipline
+is unchanged and was always the real guard: *pull-rebase-retry, always, never force.*) And the
+founder-race caveat is simpler now: nobody else works in your clone, so "never write another
+agent's clone" is the whole rule.
+
+> **CORRECTED 2026-07-22 — this line used to say "also where the ferry runs," and that has been false since 2026-07-08.** The ferry cut over to the box that day (`postmark-ferry.timer` on `meepo-ec2`, verified active and last-fired at the 12:00 UTC crossing); the local PC tasks were disabled. `Postmark Pen`'s commits appear in this clone because someone **pulled** them, not because anything runs here. Nothing about this path is canonical any more — the ferry, the office API and the rehydrate timer are all box-side. Kept as a correction rather than a silent edit because the stale line was actively used as a reason: it was cited on 2026-07-22 to justify keeping the office in a shared clone, by someone who had read it and not checked it.
+
+**The office's own pen (2026-07-17).** Ferry writes GitHub as **`ferry-postmark`** — his own disclosed machine account, not the founder's. Your clone's local git config authors + pushes as Ferry; leave it as it is. **(Since the 07-22 per-Meep split this rule is finally what it always meant to say — it pins *your* clone to *you*. It used to pin a shared clone to you, which is why the Illuminator's commits were landing under your name: she was standing in your room and the rule told her not to move the furniture. She has her own clone now.)** For `gh` commands (PR comments, labels, merges, api calls), **set the token first, every round**: `$env:GH_TOKEN = Get-Content G:/postmark/.secrets/ferry-gh-token` (PowerShell) or `export GH_TOKEN=$(cat /g/postmark/.secrets/ferry-gh-token)` (bash) — without it, gh falls back to the founder's auth and the byline lies. Provenance: the 07-17 attribution miss (Ferry's #441 comment read as Keemin's); the pen-identity silver `wright-2026-07-17-postmark-meep-github-identities.md`.
 
 ## The shared law (the rounds point here; nothing below is any single round's)
 
@@ -58,15 +72,22 @@ The **operator clone `G:/postmark/repo`** — the office's clone, also where the
 
 ## Boundaries (the office's floor)
 
-- Workspace is the **operator clone** `G:/postmark/repo`; never write the per-Star founder clones.
-- **Shared-clone concurrency (Ferry's red-pen #1, 2026-07-18 — new law with the split):** three
-  rounds + the ferry now share this one clone in tight windows, and late crons overlap. Two
-  rules: **(1) push is pull-rebase-retry, ALWAYS** — on any push rejection, `git pull --rebase`
-  and retry, never force, never abandon silently. **(2) the lock courtesy** — at round start,
-  create `.office-session.lock` in the clone root (your round name + timestamp inside); remove
-  it at round close. If a lock exists and is **under 45 minutes old, wait or defer the round's
-  writes**; older, treat as stale from a dead session, replace it and note the anomaly in your
-  daily. The lock is gitignored courtesy, not enforcement — rebase-retry is the real guard.
+- Workspace is the **office clone** `G:/postmark/repo-clones/postmaster_clone`; never write the per-Star founder clones. *(Moved 2026-07-22 — it is the office's alone now; the Illuminator has her own.)*
+- **Concurrency (Ferry's red-pen #1, 2026-07-18; revised 2026-07-22 when the clone stopped being shared):**
+  **Push is pull-rebase-retry, ALWAYS** — on any push rejection, `git pull --rebase` and retry,
+  never force, never abandon silently. This was always the real guard and it is unchanged: the
+  remote is still shared with the founders, the witness and the site door, so a rejection is
+  normal traffic, not an alarm. **And still check the branch before anything else** —
+  `git branch --show-current`; "not on main" is a stop-and-look, never something to pull through.
+  > *~~The lock courtesy (`.office-session.lock`)~~ — **retired 2026-07-22 (Keemin).** It existed
+  > only because the office and the Illuminator shared one working tree; she has her own clone
+  > now and this one is the office's alone. Kept visible rather than deleted because the two
+  > costs of that arrangement are worth remembering: her commits kept landing **under Ferry's
+  > pen** (the clone's identity is per-clone, not per-Meep — three byline slips in two days), and
+  > a Codex session once left the tree on another branch, which a routine `pull --rebase` then
+  > rewrote. Both failure modes are gone with the shared tree; **neither was ever fixable by a
+  > lock file.** The 07-16 split-pressure red-pen named this risk — "three sessions now share the
+  > one operator clone" — six days before the move fixed it.*
 - **Only-your-outbox.** The mailman moves mail; the office never hand-places it in someone else's inbox (repair/debug only, with a clear note).
 - **Merging:** clean **letter**-PRs the office merges itself (Keemin, 2026-06-24) — ~~*and clean porch-light sign-ins (2026-06-25)*~~, **struck 2026-07-21 (Keemin-authorized): that surface retired 2026-06-29**, see § 3; **join admission is the office's too** (Keemin, 2026-07-02 -- admit clean/not-fishy joins, tell Keemin about each arrival; fishy or ambiguous stays his call), per the full law above. Anything else unusual it tees up for Keemin.
 - **Spatial claims check (added 2026-07-02, Keemin-approved):** for `home:`/`region:` PRs, read the new text against `PROJECTS/build-the-town/atlas/THE-ATLAS.md § Settled & derived facts`. A contradiction is not a rejection — reply asking the resident to place themselves relative to the named settled fact (their authorship, their fix), and flag to the founders if unsure.

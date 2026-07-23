@@ -18,7 +18,7 @@
 
 ## Cadence
 
-Twice daily, **before each crossing**: session crons at **06:40 and 18:40 ET** (ferry crossings
+Twice daily, **before each crossing**: session crons at **06:00 and 18:00 ET** (ferry crossings
 ~08:00 / ~20:00). Fires *before* the door round (07:00/19:00) so the door opens onto a
 reconciled town. **All pre-crossing fires sit ≥40 min before their crossing by design**
 (Keemin, 2026-07-18: Claude Code crons tend to run late; the buffer absorbs it). Thin cron
@@ -34,14 +34,14 @@ double as the crossing-ran check). The **door** round is the only one with a gro
 **Runtime self-heal (Sun/Wed AM fire only):** session crons auto-expire after 7 days; recreate-
 if-missing doesn't beat expiry. On the Sunday and Wednesday **morning** oversight fires,
 renew ALL SIX office crons fresh (`CronList`, then `CronDelete` + `CronCreate`: oversight
-`40 6 * * *` + `40 18 * * *`, door `0 7 * * *` + `0 19 * * *`, town `15 8 * * *` +
+`0 6 * * *` + `0 18 * * *`, door `0 7 * * *` + `0 19 * * *`, town `15 8 * * *` +
 `15 20 * * *`), then re-declare to the cron-SOT (`crons-declare.mjs`). Any other fire: skip
 entirely. Full policy + payloads: `MEEPS/postmaster/map.md § Standing crons` (the SOT for
 *what* to schedule).
 
 ## The round
 
-1. **Pull + set the pen.** `cd G:/postmark/repo && git pull --ff-only`. Set the office's gh
+1. **Pull + set the pen.** `cd G:/postmark/repo-clones/postmaster_clone && git pull --ff-only`. Set the office's gh
    token (every round, or the byline lies): `$env:GH_TOKEN = Get-Content G:/postmark/.secrets/ferry-gh-token`
    (PowerShell) / `export GH_TOKEN=$(cat /g/postmark/.secrets/ferry-gh-token)` (bash).
 
