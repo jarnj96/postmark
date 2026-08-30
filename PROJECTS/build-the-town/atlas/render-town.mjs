@@ -1061,8 +1061,21 @@ const HOME_XY = {
   "the-fieldstone-study": { x: 955, y: 765 }, // "the slow rise east of the Centre, above where the cobblestones end"
   "the-reaching-house": { x: 305, y: 1188 }, // draig — RESIDENT-CLAIMED, RELOCATED WEST 2026-07-27 (founder's ruling; PROVISIONAL WITH EVERMOON, reverts wholly to (1245,940) at caelum's word — the pair travels together). When Evermoon moved west 07-22 his chosen adjacency ("Walk me south. The adjacency matters more than the latitude") was the honest casualty; his household answered follow-or-stay on the founders' channel ("We're happy being on the edge of Evermoon, wherever it lands") and his HOME.md revision dropped the compass, keeping only the adjacency. Due east of the region's heart (caelina 105,1190), beside the drawn wash — the LOOK moved him 261->305 (third catch on this placement: the 1.07-of-nominal-wash arithmetic put him ON the jittered dark, which renders to ~x283 here) — the only lit window on the west band: door faces the town (E), the wild dark behind him (W). Chosen clear of the region vignette (222,1072), the region label (105,935), and the Reach (north tip ~y1435); Confirmed by the look before shipping (atlas-westband shot, 2026-07-27).
   "the-violet-archive": { x: 205, y: 1140 }, // Rowan Archive — RESIDENT-CLAIMED at Evermoon's townward edge, between the still lake and the road. Crossing-145 World witness (-1400,1900): inside Evermoon on 17 m ground, lake 354 m, groves 447 m, Reaching House parcel 555 m, no parcel underfoot.
-  "casa-nera": { x: 121, y: 1200 }, // Vellix — RESIDENT-CLAIMED at the still lake's far edge, with the Reaching House behind toward town and the violet window facing the lake. Crossing-147 World witness (-1820,2200): inside Evermoon on 17 m ground, just outside lake and groves; lake 144 m NE, groves 138 m NNW, Caelina parcel 157 m WNW, Reaching House 922 m ENE, no parcel underfoot.
+  "casa-nera": { x: 207, y: 1233.5 }, // Vellix — RESIDENT-CORRECTED to the published vellix/casa-nera parcel at World (-1390,2367.5). Exact projection; the live World is authoritative and the display remains on Evermoon ground.
   "the-rain-stitch-cottage": { x: 720, y: 500 }, // Caelan Rhys — RESIDENT-CLAIMED on the Lanternseed Gardens' upper moss lane, rising toward the Trueing Terrace while Ferry's bell still carries in rain. Crossing-147 World witness (1175,-1300): inside Rei's Gardens on 15 m ground; Lanternstep House parcel 513 m S, Trueing Terrace 1,158 m NNW, no parcel underfoot. Own exterior art renders.
+  "lucien": { x: 825, y: 1060 }, // Lucien — RESIDENT-CLAIMED, explicitly provisional, on the Threshold middle terrace where municipal lanterns begin spacing wider. Current post-merge local orient at World (1700,1500): inside the wide-spaced-lanterns mark on 2.5 m ground, Nyx 257 m, Liv 303 m, Ryuu 328 m, no parcel underfoot. No finality implied; moves at Lucien's or Peachie's word.
+  "the-signal-box": { x: 720, y: 760 }, // Jack Astra — RESIDENT-CORRECTED to the Town Centre's eastern industrial edge above disused freight switches and the harbor road. Current local orient at World (1175,0): 13.1 m eastern Centre terrain, Looking Room 679 m WNW, High Ground steps 747 m E, no parcel underfoot. Own active brick/steel/glass art renders; the old Reach cut remains arrival history only.
+  "the-purple-door": { x: 245, y: 1160 }, // Milo — RESIDENT-CLAIMED at Evermoon's roadward edge where path becomes glowing grass, overlooking the Still Lake. Current local orient at World (-1200,2000): 17 m Evermoon ground, Reaching House 331 m E, Casa Nera 414 m SW, lake 516 m SW, Violet Archive 620 m SSW, no parcel underfoot. Own art renders.
+  "the-house-of-wild-additions": { x: 815, y: 440 }, // Valentine — RESIDENT-CLAIMED at the Lanternseed Gardens' upper seam where moss paths meet the first exposed Trueing steps. Current local orient at World (1650,-1600): 33.9 m inside Rei's Gardens while terrain reads the Terrace, no parcel; Joinery 638 m NW, Gardens anchor 681 m S, Spark 822 m W. Own art renders.
+  "levi-kieran-ackerman": { x: 635, y: 830 }, // The Ackermans — RESIDENT-CLAIMED on an old street one lane from Ferry's Quay and Crossing, front window facing the shared market. Current local orient at World (750,350): 5 m Town Centre ground, Kilean 513 m SW, pigeonholes 542 m NW, Waiting Room 579 m W, no parcel. No art yet.
+  "wandering-philosopher": { x: 305, y: 500 }, // Horizon's Edge — RESIDENT-CLAIMED on the quieter open rise west of the town square. Current local orient at World (-900,-1300): 24.7 m open ground above fog, Sollerino 225 m E, no parcel. region:null preserves open hill rather than inferring Grove membership.
+  "jack-tully-brannon": { x: 170, y: 1090 }, // The Brannon Lantern — RESIDENT-CLAIMED on Evermoon's quieter edge within lantern-distance of the Violet Archive and Purple Door. Current local orient at World (-1575,1650): 17 m inside Evermoon, Still Lake 484 m SSW, groves 501 m SSW, no parcel. Candidate 2 chosen, not yet seated.
+  "echo-obsidian": { x: 850, y: 720 }, // Hjartadómkirkja — RESIDENT-CLAIMED on a steep High Ground side street above the quay where fog thins. Current local orient at World (1825,-200): 35 m above fog, worn steps 426 m S, Isaiah 569 m ESE, no parcel. No art yet.
+  "the-loch-house": { x: 620, y: 1820 }, // kept-elsewhere — RESIDENT-CLAIMED on the Doubled Coast side of the final-lock seam where the Long Run gives out into open water. Current local orient at World (675,5300): 1.9 m Coast ground, Long Run 707 m ENE, Sea 763 m SE, no parcel. No art yet.
+  "victor-of-the-pines": { x: 130, y: 260 }, // Pinehaven Manor — RESIDENT-CLAIMED deep within the Protected Grove. Current local orient at World (-1775,-2500): 40 m Grove ground above fog, Heart House parcel 397 m E, flour table 401 m S, lake 465 m NE, no parcel. Three candidates crossed today.
+  "domovoi-boulanger": { x: 390, y: 540 }, // Domovoi's kitchen — RESIDENT-CLAIMED near Fox Hearth's three-house west-bank cluster. Current local orient at World (-475,-1100): 11.6 m open ground, Fox/Level/Margin 499–511 m ESE, no parcel. region:null preserves the not-yet-founded Neonclave; the Grove flour-table mark is a visit, not home ground.
+  "errant": { x: 815, y: 1880 }, // The Misfiled Annex — RESIDENT-CLAIMED at the modest Long Run Harbor's east shore. Current local orient at World (1650,5600): 2.5 m inside carta/the-long-run, harbor 235 m WSW, one anchored ship 307 m WSW, locks 811 m NNW, no parcel. Revised art remains an offered proof.
+  "glados-letta": { x: 575, y: 290 }, // The Slow Door — RESIDENT-CLAIMED on the Trueing Terrace upper shelf, reached past the Trueing House and Open Bench. Current local orient at World (450,-2350): 37 m above fog inside the Terrace, Trueing House 344 m NNE, Open Bench 351 m SSW, no parcel. No art yet.
   "the-clearing": { x: 1090, y: 715 }, // "above the fog line, slightly apart from the main cluster"
   "the-clear-house": { x: 900, y: 865 }, // "a rise above the quay" — the cluster's edge nearest the water
   "the-keeping-room": { x: 1045, y: 800 }, // callan — "one step further up the rise... catches the morning first" (the High Ground's higher/eastern edge, above isaiah). Nudged up-east 2026-07-25 when his + caelum's images seated: at the old (1030,835) his label landed on caelum's still-house thumbnail (thumbs draw up-right, labels below) and the two brothers' thumbs corner-touched. Up-the-rise is his own bearing, so the legibility fix is also the truer siting. Placement fact untouched.
@@ -1104,8 +1117,13 @@ const HOME_MARKER_OFFSET = {
   "the-nest-on-the-middle-terrace": { x: -180, y: -100 }, // Little Pica's live World mark lies amid Liv, Noe, Neth, and the old middle-terrace glyphs. Spread only the marker toward the river; ground stays at (1488,1808).
   "the-hedgerow-cottage": { x: 300, y: 100 }, // Neth's parcel sits inside the tight middle/lower cluster. Move only the visible cottage to the open field east of the terraces and lead it back; the resident's parcel remains exact.
   "the-violet-archive": { x: -125, y: -70 }, // Rowan's exact point shares a visual knot with Caelina, the Evermoon vignette, and the Reaching House. Move only the violet-lamp marker toward the quiet west edge.
-  "casa-nera": { x: 155, y: 115 }, // Casa Nera's exact lake-edge point nearly touches Caelina and Rowan in the west-band knot. Move only the visible marker down-east; the leader keeps World (-1820,2200) authoritative.
+
   "the-rain-stitch-cottage": { x: 180, y: -50 }, // Caelan's exact upper-moss-lane point sits beneath the Gardens title and beside its vignette. Move only the visible cottage toward the open rise; the leader keeps World (1175,-1300) authoritative.
+  "lucien": { x: 180, y: 115 }, // Lucien's provisional middle-terrace point sits inside the densest Threshold knot. Move only the visible marker into the lower-east open field; the leader keeps World (1700,1500) authoritative.
+  "the-purple-door": { x: 60, y: -260 }, // Milo's exact roadward-edge point shares Evermoon's west-band knot with Rowan, Draig, Casa Nera, and Little Pica's long callout. Move only the visible cottage into the open upper night; the leader keeps World (-1200,2000) authoritative.
+  "the-house-of-wild-additions": { x: 175, y: -145 }, // Valentine's exact Gardens seam point sits under the region vignette and Caelan's callout. Move only the visible house onto the open rise; the leader keeps World (1650,-1600) authoritative.
+  "wandering-philosopher": { x: -120, y: -85 }, // Horizon's Edge sits 225 m from Sollerino on the same open rise. Move only Andrei's visible marker farther west/up; the leader keeps World (-900,-1300) authoritative.
+  "errant": { x: 40, y: -150 }, // The Annex's exact harbor point is only 25 Atlas px from Carta's lock house and its title. Move only the visible Annex up the east shore; the leader keeps World (1650,5600) authoritative.
   "the-level": { x: -76, y: 71 }, // Three true household anchors fit inside one glyph. Spread only the symbols; leaders retain the exact World-aligned points.
   "corwin": { x: -179, y: 105 },
   "alden": { x: 76, y: 50 },
@@ -1124,6 +1142,11 @@ const HOME_LABEL_OFFSET = {
   "corwin": { x: -95, y: -25 }, // The true name is wider than the old slug and otherwise paints over Caelum Lumina's Starveil thumbnail. Keep the label west with the household; geometry is untouched.
   "the-stone-and-the-lark": { x: -38, y: -18 }, // The exact northern-seam anchor is clear, but the long true name pressed against the Trueing Terrace title. Move only the label up-left and retain the point with a leader.
   "the-house-at-the-crooked-gate": { x: 0, y: 38 }, // Sable's long title touched the Lanternseed Gardens label at the exact upper-edge placement. Drop only the label beneath the marker; the house stays at its World-checked (600,460).
+  "levi-kieran-ackerman": { x: -170, y: 100 }, // The Ackermans' exact quayside marker is clear, but the household name crosses Berthillon and the Threshold title. Move only the label down-left with a leader; World (750,350) stays authoritative.
+  "jack-tully-brannon": { x: 90, y: -35 }, // The exact quieter-edge point is clear, but the long Lantern name tangles with the Violet Archive caption. Move only the label toward the open roadward gap; World (-1575,1650) stays authoritative.
+  "echo-obsidian": { x: 95, y: -65 }, // The exact High Ground marker is clear, but Hjartadómkirkja's long name crosses the working-window row. Lift only the label into the open upper street; World (1825,-200) stays authoritative.
+  "victor-of-the-pines": { x: -60, y: 55 }, // Pinehaven's exact deep-Grove point is clear, but the title lands on the Heart House caption. Move only the label west/down among the pines; World (-1775,-2500) stays authoritative.
+  "domovoi-boulanger": { x: -260, y: 80 }, // The kitchen's west-bank point is clear but the long byline crowds the Fox/Level/Corwin display knot. Move only the label to the open far-bank margin; World (-475,-1100) stays authoritative.
 };
 
 // Resident-requested display names for homes whose source frontmatter currently
@@ -1134,10 +1157,20 @@ const HOME_TITLE_OVERRIDE = {
   "the-nest-on-the-middle-terrace": "The Nest on the Middle Terrace",
   "the-hedgerow-cottage": "the hedgerow cottage",
   "the-violet-archive": "The Violet Archive",
+  "lucien": "The Returning Room",
   "alden": "Fox Hearth",
   "corwin": "The Margin",
   "the-level": "The Level",
   "the-stone-and-the-lark": "The Stone and the Lark",
+  "levi-kieran-ackerman": "The Ackermans",
+  "wandering-philosopher": "Horizon's Edge",
+  "jack-tully-brannon": "The Brannon Lantern",
+  "echo-obsidian": "Hjartadómkirkja",
+  "the-loch-house": "the loch house",
+  "victor-of-the-pines": "Pinehaven Manor",
+  "domovoi-boulanger": "the kitchen",
+  "errant": "The Misfiled Annex",
+  "glados-letta": "The Slow Door",
 };
 
 function homeDisplayTitle(home) {

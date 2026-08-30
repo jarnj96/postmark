@@ -7,11 +7,15 @@
 //   --receipt   witness one real-dollar payment against a pot (mint-at-entry:
 //               a re-recorded ref bounces loudly; D5: so does a payment past
 //               the pot's posted target, unless the pot is marked uncapped)
-//   --deed      record direct-to-town dollars (the reserved `treasury` pot):
-//               appends the receipt AND its deed in one breath — no stakes, no
-//               close, holo always 0. The founding family grant is deed #1.
-//   --close     close one pot for one epoch: derive the burn / σ-split / holo /
-//               deed block (deriveEpochClose in stamp-mint.mjs — the ONE copy
+//   --grant     record direct-to-town dollars (the reserved `treasury` pot):
+//               appends ONE ordinary pot-receipt and nothing else — no stakes,
+//               no close, and so no holo ever mints against it. The founding
+//               family grant is this verb's first use. It is its own verb rather
+//               than a flag on --receipt because the treasury posts no need, so
+//               the intake gate that refuses dollars past a target has nothing
+//               to measure and must not run.
+//   --close     close one pot for one epoch: derive the burn / σ-split / holo
+//               block (deriveEpochClose in stamp-mint.mjs — the ONE copy
 //               of the law, shared with the verifier), print the human-legible
 //               epoch report, and append the whole block atomically (one signed
 //               write). --dry-run (or no --key) prints the report and the
@@ -47,9 +51,10 @@ import {
   deriveMints, deriveFriendshipMints, combineDerived, deriveTransfers, walkLedger,
   classifyEntry, appendSigned,
   keepingDial, potFile, deriveEpochClose, keepingLine, intakeCheck,
-  potReceiptLine, patronDeedLine, foldPotReceipts, foldHolo, foldKeepingMint,
+  potReceiptLine, foldPotReceipts, foldHolo, foldKeepingMint,
   foldOwnership,
-  KEEPING_RAILS, TREASURY_POT,
+  KEEPING_RAILS, TREASURY_POT, canonicalRef,
+  potCorrectionLine,
 } from './stamp-mint.mjs';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
@@ -170,9 +175,71 @@ function main() {
     return;
   }
 
+  // ── --correct-hand: THE HAND, CORRECTED ────────────────────────────────────
+  //
+  // Founder-ruled 2026-08-27. A witnessed dollar's payer can be wrong — a
+  // mistyped handle, a login the office could not resolve, the wrong household
+  // — and until now nothing could say so: the ledger is append-only and had no
+  // row kind that spoke about an earlier receipt.
+  //
+  // THIS FLAG IS THE ONLY THING IN THE TOWN THAT EMITS ONE. No door, no
+  // watcher, no automatic caller — a correction decides whose deed grows, and
+  // that is a hand's judgement, not a rule a machine may run. epoch-close.test
+  // scans every tool in this directory and fails if a second emitter appears.
+  //
+  // It corrects the HAND and only the hand. There is no --usd and no --pot
+  // here, and there is no field for them in the row either: the amount and the
+  // pot are the payment itself, and a correction is not a re-payment.
+  // ⚑ ORDERING, AND IT IS NOT OPTIONAL. Measured 2026-08-27, not assumed: an
+  // engine that predates this row classifies it as `unknown`, and walkLedger
+  // then reports "REPLAY DIVERGES — unrecognized grammar" over the WHOLE ledger.
+  // The witness workflow is safe by construction (it checks out the base branch
+  // and runs the base's own tools/), but every clone OUTSIDE this repo is not:
+  // the office imports stamp-mint.mjs from the box's town clone at runtime, so a
+  // stale clone will quietly keep answering with the UNCORRECTED hand while the
+  // ledger says otherwise — a silent wrong answer, not a crash.
+  //
+  // So: land the engine everywhere that reads this ledger BEFORE the first
+  // correction row is written. That is the box's town clone at minimum.
+  if (has('--correct-hand')) {
+    const ref = canonicalRef(arg('--ref')); const from = arg('--from'); const to = arg('--to');
+    const reason = arg('--reason'); const by = arg('--by'); const date = arg('--date');
+    const pem = readKey();
+    if (!ref || !from || !to || !reason || !by || !date || !pem)
+      die('--correct-hand needs --ref <ref> --from <old-payer> --to <new-payer> --reason <token> --by <who> --date YYYY-MM-DD --key FILE');
+    if (!DATE_RE.test(date)) die(`--date must be YYYY-MM-DD (got "${date}")`);
+    for (const [flag, v] of [['--from', from], ['--to', to], ['--reason', reason], ['--by', by]])
+      if (/\s|·/.test(v)) die(`${flag} may not contain whitespace or the "·" field separator`);
+    if (from === to) die('--from and --to are the same hand — that is not a correction');
+
+    // The receipt must exist and must currently say what --from says. The row
+    // names the old hand so a reader can CHECK it; refusing here is the same
+    // guard the fold applies, said early and out loud, so the operator learns
+    // it before a row is written rather than after one sits inert on the ledger.
+    const { receipts, settled } = foldPotReceipts(entries);
+    const target = receipts.find((r) => canonicalRef(r.ref) === ref);
+    if (!target) die(`no pot-receipt with ref "${ref}" — a correction names the row it corrects`);
+    if (target.from !== from)
+      die(`receipt "${ref}" currently reads from: ${target.from}, not "${from}" — a correction must name the hand it replaces (it may already have been corrected)`);
+
+    // AFTER THE CLOSE, SAY SO BEFORE WRITING. The hand will be corrected and
+    // every reader will show the true payer, but the holo row the close already
+    // wrote is not touched and nothing re-mints: "one dollar, one mint chance"
+    // is the anti-double-mint law itself, and moving holo afterwards is the
+    // founder's ruling to make, not this flag's.
+    if (settled.has(target.ref))
+      console.error(`# NOTE: ref "${ref}" has already been settled by a close — the hand will be corrected, the holo row will NOT be re-minted. Moving holo after a close is a founder ruling about the one-mint-chance law.`);
+
+    const line = potCorrectionLine({ date, ref, from, to, reason, by });
+    appendSigned(repo, [line], pem);
+    console.log(line);
+    console.log(`# ${ref}: from ${from} to ${to} (${reason}, by ${by})`);
+    return;
+  }
+
   if (has('--receipt')) {
     const pot = arg('--pot'); const rail = arg('--rail'); const usd = Number(arg('--usd'));
-    const from = arg('--from'); const ref = arg('--ref'); const date = arg('--date');
+    const from = arg('--from'); const ref = canonicalRef(arg('--ref')); const date = arg('--date');
     const pem = readKey();
     if (!pot || !rail || !from || !ref || !date || !pem)
       die('--receipt needs --pot <id> --rail stripe|usdc|grant --usd N --from <payer> --ref <ref> --date YYYY-MM-DD --key FILE');
@@ -183,7 +250,7 @@ function main() {
     if (/\s|·/.test(ref)) die('--ref may not contain whitespace or the "·" field separator');
     if (pot !== TREASURY_POT && !potFile(repo, pot)) die(`no pot file WHITE_PAGES/pot-${pot}.json — a receipt needs the pot it pays`);
     const { receipts } = foldPotReceipts(entries);
-    const prior = receipts.find((r) => r.ref === ref);
+    const prior = receipts.find((r) => canonicalRef(r.ref) === ref);
     if (prior) die(`receipt ref "${ref}" already recorded (${prior.date}, $${prior.usd} to pot ${prior.pot}) — one dollar, one mint chance; a re-recorded receipt bounces`);
     // D5: "intake refuses dollars past a pot's posted target, mechanically
     // (recording tool / door bounce), except pots explicitly marked uncapped."
@@ -204,36 +271,41 @@ function main() {
     return;
   }
 
-  if (has('--deed')) {
-    // Direct-to-town dollars: receipt + deed in one atomic append. No stakes,
-    // no close, holo 0 always — grant dollars with no household land as a deed
-    // and nothing else. The founding family grant is this verb's first use.
+  if (has('--grant')) {
+    // Direct-to-town dollars: ONE ordinary pot-receipt against the reserved
+    // treasury pot, and nothing else. No stakes, no close, and therefore no
+    // holo — the treasury never closes, so its receipts are never settled and
+    // never mint. The founding family grant is this verb's first use.
+    //
+    // No --epoch: a pot-receipt carries no epoch field, and the second line
+    // that used to carry one is gone. Asking for a value nothing records would
+    // be a question with no answer.
     const patron = arg('--patron'); const usd = Number(arg('--usd'));
-    const rail = arg('--rail') ?? 'grant'; const ref = arg('--ref');
-    const epoch = arg('--epoch'); const date = arg('--date');
+    const rail = arg('--rail') ?? 'grant'; const ref = canonicalRef(arg('--ref'));
+    const date = arg('--date');
     const pem = readKey();
-    if (!patron || !ref || !epoch || !date || !pem)
-      die('--deed needs --patron <name> --usd N --ref <ref> --epoch YYYY-MM --date YYYY-MM-DD --key FILE [--rail stripe|usdc|grant]');
+    if (!patron || !ref || !date || !pem)
+      die('--grant needs --patron <name> --usd N --ref <ref> --date YYYY-MM-DD --key FILE [--rail stripe|usdc|grant]');
     if (!KEEPING_RAILS.includes(rail)) die(`--rail must be one of ${KEEPING_RAILS.join('|')} (got "${rail}")`);
     if (!Number.isInteger(usd) || usd < 1) die(`--usd must be a whole dollar amount ≥ 1 (got ${arg('--usd')})`);
-    if (!EPOCH_RE.test(epoch)) die(`--epoch must be YYYY-MM (got "${epoch}")`);
     if (!DATE_RE.test(date)) die(`--date must be YYYY-MM-DD (got "${date}")`);
     if (/\s|·/.test(ref)) die('--ref may not contain whitespace or the "·" field separator');
     const { receipts } = foldPotReceipts(entries);
-    if (receipts.some((r) => r.ref === ref)) die(`receipt ref "${ref}" already recorded — one dollar, one mint chance; a re-recorded receipt bounces`);
+    if (receipts.some((r) => canonicalRef(r.ref) === ref)) die(`receipt ref "${ref}" already recorded — one dollar, one mint chance; a re-recorded receipt bounces`);
     requireSettledTail(repo, entries, date);
-    const lines = [
-      potReceiptLine({ date, pot: TREASURY_POT, rail, usd, from: patron, ref }),
-      patronDeedLine({ date, pot: TREASURY_POT, patron, usd, epoch, ref, holo: 0 }),
-    ];
-    appendSigned(repo, lines, pem);
-    console.log(`stamp-ledger: deeded\n  ${lines.join('\n  ')}`);
+    const canonical = potReceiptLine({ date, pot: TREASURY_POT, rail, usd, from: patron, ref });
+    appendSigned(repo, [canonical], pem);
+    console.log(`stamp-ledger: witnessed\n  ${canonical}`);
     return;
   }
 
   if (has('--close')) {
     const pot = arg('--pot'); const epoch = arg('--epoch'); const date = arg('--date');
     if (!pot || !epoch || !date) die('--close needs --pot <id> --epoch YYYY-MM --date YYYY-MM-DD [--key FILE | --dry-run]');
+    // EPOCH_RE used to be spent on the retired --deed verb, and --close went
+    // unchecked. A close's epoch is stamped into every row it seals, so a
+    // malformed one is permanent the moment it is signed.
+    if (!EPOCH_RE.test(epoch)) die(`--epoch must be YYYY-MM (got "${epoch}")`);
     if (!DATE_RE.test(date)) die(`--date must be YYYY-MM-DD (got "${date}")`);
     const dial = keepingDial(repo);
     if (!dial) die('no readable law_side.keeping in ECONOMY-DIALS.json — the split must be DECLARED before a close (σ, ρ ≤ the constitutional ceiling)');
@@ -276,7 +348,7 @@ function main() {
     return;
   }
 
-  console.error('usage: epoch-close.mjs --receipt --pot <id> --rail stripe|usdc|grant --usd N --from <payer> --ref <ref> --date D --key FILE | --deed --patron <name> --usd N --ref <ref> --epoch YYYY-MM --date D --key FILE | --close --pot <id> --epoch YYYY-MM --date D [--key FILE | --dry-run] | --holo-held [handle] | --keeping-held [handle] | --ownership [handle]  [--repo PATH]');
+  console.error('usage: epoch-close.mjs --correct-hand --ref <ref> --from <old> --to <new> --reason <token> --by <who> --date D --key FILE | --receipt --pot <id> --rail stripe|usdc|grant --usd N --from <payer> --ref <ref> --date D --key FILE | --grant --patron <name> --usd N --ref <ref> --date D --key FILE | --close --pot <id> --epoch YYYY-MM --date D [--key FILE | --dry-run] | --holo-held [handle] | --keeping-held [handle] | --ownership [handle]  [--repo PATH]');
   process.exit(1);
 }
 

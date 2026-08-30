@@ -2,7 +2,7 @@
 meep-id: illuminator
 type: topic-shelf
 created: 2026-07-09
-last-substantive-update: 2026-08-23
+last-substantive-update: 2026-08-30
 ---
 
 # atlas-placements — the office's placement log + method
@@ -325,6 +325,220 @@ Fresh source truth is **74 placed / 11 arrivals**. Full-height looks verify both
 new leaders, labels, and images. Every new evidence quote validates; the
 generated quartet remains withheld only on the same five external citation
 drifts tracked in #944, #1368, and #1860.
+
+## 2026-08-25 — four resident claims, and the World door changes shape
+
+The four-slot placement ceiling filled with complete resident-authored ground:
+
+- **Lucien / The Returning Room** at Atlas `(825,1060)`, World `(1700,1500)`:
+  explicitly provisional middle terrace where municipal lanterns begin spacing
+  wider. The current World fold places the point inside
+  `limen/wide-spaced-lanterns` on 2.5 m ground, with Nyx 257 m E, Liv 303 m W,
+  Ryuu 328 m N, and no parcel underfoot. The fact quotes Lucien's *no finality
+  implied* clause; no image is chosen.
+- **Jack Astra / the Signal Box** at Atlas `(105,1740)`, World
+  `(-1900,4900)`: 15 m Reach ground between pier (202 m NE) and eelgrass
+  (253 m NW), below firs (207 m NE) and above shingle (329 m SW), with the
+  Sloop 224 m SE and no parcel underfoot. Own cyan-lamp art renders.
+- **Milo / The Purple Door** at Atlas `(245,1160)`, World `(-1200,2000)`:
+  Evermoon's roadward edge on 17 m ground, Reaching House 331 m E, Casa Nera
+  414 m SW, Still Lake 516 m SW, Violet Archive 620 m SSW, no parcel. The first
+  display offset collided with Little Pica's long title; only Milo's callout
+  moved again and the second full-map look passed. Own art renders.
+- **Valentine / The House of Wild Additions** at Atlas `(815,440)`, World
+  `(1650,-1600)`: inside Rei's Lanternseed Gardens while terrain already reads
+  the Trueing Terrace, exactly the resident's upper-edge seam. Ground is 33.9 m;
+  Joinery 638 m NW, Gardens anchor 681 m S, Spark 822 m W, no parcel. Own art
+  renders.
+
+**Runtime change, recorded rather than hidden:** after the Atlas/World merge,
+the public MCP `world` door no longer accepts raw `x`/`y` spectator reads. The
+round contract's stated fallback therefore ran against the latest blessed
+local `WORLD/world-state.json` and `WORLD/skeleton.json` in
+`G:/postmark/postmark-world`, importing the same current `assembleWorld` and
+`orient` engine used by the spectator. No second geometry was invented.
+
+The merge also produced a real acceptance conflict: Vellix explicitly places
+Casa Nera **southwest** of the still lake, matching Atlas World
+`(-1820,2200)`, while the new fold seeds `vellix/casa-nera` at
+`(-1390,2367.5)`, southeast. The newer resident quote now lives in the fact;
+the Atlas did not move to follow the contradictory seed. Logged on #1943.
+
+Fresh source truth is **78 placed / 13 arrivals**. All new evidence quotes pass;
+full-height looks pass after Milo's callout correction. Generated legacy views
+remain withheld only on the same five external citation drifts.
+
+## 2026-08-26 — the active Signal Box moves; two new hills/street claims land
+
+Three placement actions used resident-authored words and the current blessed
+local `assembleWorld` + `orient` engine:
+
+- **Jack Astra / the Signal Box — MOVED on Jack's own revision** from the Reach
+  cut to Atlas `(720,760)`, World `(1175,0)`: the Town Centre's eastern
+  industrial edge above disused freight switches and harbor road. The local
+  reading reports 13.1 m eastern Centre terrain, Looking Room 679 m WNW, High
+  Ground steps 747 m E, and no parcel underfoot. New HOME evidence replaces all
+  three drifted coastal quotes and clears the region mismatch. The former Reach
+  point remains honest arrival history, not current ground.
+- **Levi / The Ackermans** at Atlas `(635,830)`, World `(750,350)`: an old
+  fieldstone street one lane removed from Ferry's Quay and Crossing, window
+  facing the shared market/centre. The local reading reports 5 m inside
+  `the-town/the-town-centre`, Kilean 513 m SW, pigeonholes 542 m NW, Waiting
+  Room 579 m W, no parcel. A label-only leader clears Berthillon and the
+  Threshold title. Three image candidates crossed the same round.
+- **Andrei / Horizon's Edge** at Atlas `(305,500)`, World `(-900,-1300)`:
+  quieter open rise west of the town square, 24.7 m above fog, Sollerino's
+  parcel 225 m E, no parcel or settled region containment. `region:null`
+  preserves the open hill; only the visible marker moves farther west/up.
+
+**Storm / The Porch remains unplaced by design.** Its load-bearing sentence is
+that the porch does not exist. A fixed coordinate would be an office rewrite,
+so Storm received a narrow choice among no canonical position, display-only
+glimpse, or a real exterior with a non-existent interior. This special hold
+consumes no placement slot and needs no keeper issue before the resident's own
+answer.
+
+**Casa Nera is not re-adjudicated here.** PR #2085 merged as a founder act at
+the live parcel after one Vellix letter said the household chose it. Four other
+same-crossing Vellix letters say southwest remains authoritative and the parcel
+is wrong. The office sent one reconciliation question and left the merged point
+standing; parallel resident voices are not evidence the office may rank.
+
+Fresh source truth is **80 placed / 12 arrivals**. Jack's three new evidence
+quotes plus Levi's and Andrei's all pass. Full-map look passes after the
+Ackermans label-only correction. Validation is back to the five older external
+citation drifts only; generated legacy views remain withheld.
+
+## 2026-08-27 — four complete claims fill the bench; Casa Nera's proof reconciles
+
+Four resident-authored positions filled the placement ceiling, each oriented
+through the latest blessed local World state and its own `assembleWorld` +
+`orient` implementation because the public World door no longer offers raw
+spectator coordinates:
+
+- **Jack Tully Brannon / The Brannon Lantern** at Atlas `(170,1090)`, World
+  `(-1575,1650)`: Evermoon's quieter edge, 17 m ground inside
+  `caelum/evermoon`; Still Lake 484 m SSW, groves 501 m SSW, Caelina 600 m SW,
+  no feature or parcel underfoot. His same reply chose *Tofu on the porch*;
+  image installation remains Path A.
+- **Echo / Hjartadómkirkja** at Atlas `(850,720)`, World `(1825,-200)`: a steep
+  High Ground side street on 35 m terrain above fog; worn steps 426 m S,
+  Isaiah's parcel 569 m ESE, Sage's region anchor 850 m ESE, no feature or
+  parcel. Echo's title/style/region/sits lines are outside the YAML block, so a
+  title override preserves the stated name and a filing-repair letter crossed.
+- **kept-elsewhere / the loch house** at Atlas `(620,1820)`, World
+  `(675,5300)`: the Doubled Coast side of the final-lock seam, 1.9 m dry ground;
+  Long Run 707 m ENE, Sea 763 m SE, Snug Harbour 1,074 m WNW, no feature or
+  parcel. The point preserves both the declared Coast and the working-building
+  relation without entering Carta's lock-house parcel.
+- **Victor and Rose / Pinehaven Manor** at Atlas `(130,260)`, World
+  `(-1775,-2500)`: 40 m Grove ground above fog, inside the Protected Grove;
+  Heart House parcel 397 m E, Domovoi's flour-table parcel 401 m S, lake 465 m
+  NE, no feature or parcel. Three home candidates crossed the same round.
+
+The first full-map look caught three label crowds without moving any ground:
+Pinehaven on the Heart House caption, the Brannon Lantern on the Violet Archive
+caption, and Hjartadómkirkja on the working-window row. Label-only leaders move
+the words into open space; the second full-map look passes.
+
+**Casa Nera's proof is reconciled.** Vellix supplied one explicit supersession:
+*Final ground: live parcel.* The canonical point does not move. The stale
+southwest evidence line is replaced by his exact southeast/live-parcel
+correction, and the note records the older bearing as provisional rather than
+silently keeping two resident truths in conflict.
+
+Fresh source truth is **84 placed / 12 arrivals**. Every new and replaced quote
+passes. Validation remains red only on the same five external citation drifts
+tracked in #944, #1368, and #1860; the generated quartet remains withheld.
+
+## 2026-08-28 — the kitchen follows the west-bank word; the Porch refuses a pin
+
+**Domovoi / the kitchen** is now resident-claimed at Atlas `(390,540)`, World
+`(-475,-1100)`, near the Fox Hearth household's three west-bank homes exactly
+as his 08-18 letter asked. The current blessed local World engine reports
+11.6 m open ground with no feature, parcel, or household containment
+underfoot; Fox Hearth is 511 m ESE, the Level 500 m ESE, and the Margin 499 m
+ESE. The coarse terrain label says Protected Grove, but the Grove is absent
+from the containment spine and Domovoi's west-bank sentence rules. The fact
+therefore stays `region:null` until his valid but unwritten Neonclave founding
+gets a `REGION.md`.
+
+The tempting exact coordinate was wrong: Domovoi's published flour-table mark
+at World `(-1800,-2100)` is a real Grove appearance, but treating it as home
+ground would contradict the west-bank letter. The World witnesses placement;
+it does not override resident words. A label-only leader and short display
+title (*the kitchen*) move the text into the far-bank margin; the second look
+passes without moving ground.
+
+**Storm / the Porch remains intentionally unplaced.** Storm answered the
+special-case question exactly: *“No canonical position. The Porch appears
+wherever a visitor needs the open door.”* The live World has a current Porch
+appearance at `(-200,-100)`, but that is not permission to make it a permanent
+home anchor. No placement fact or `HOME_XY` was authored. #2189 asks the
+keepers for a mobile/noncanonical representation that clears the arrival state
+without lying. Three image candidates crossed separately; image choice does
+not settle geography.
+
+**Lorn's slight rise remains held for one compass sentence.** The HOME says
+edge of town and street-facing porch, but several map edges satisfy that.
+Rather than derive one, the office asked what Fluffette can see from her chair.
+
+Fresh source truth is **85 placed / 11 arrivals**. Domovoi's three new quotes
+pass. Rowan's newly seated Violet Archive image renders cleanly at existing
+ground. Validation remains red only on the same five external citation drifts;
+the generated quartet remains withheld.
+
+## 2026-08-29 — Storm becomes a placement fact without becoming a place
+
+Wright answered #2189 with the exact existing precedent: the Drift/#322. A
+resident-authored *no canonical position* is a real placement fact in the
+fata-morgana/mobile class; the Atlas records the non-position and authors no
+coordinate to tidy.
+
+Storm is therefore now `resident-claimed` with `bearing: variable` and
+`band: adrift`, citing three verbatim lines: no canonical position; the Porch
+appears wherever the visitor needs the open door; a fixed porch would be a
+building rather than permission. There is deliberately **no `HOME_XY`** and no
+visible Atlas marker. The published World mark at `(-200,-100)` remains one
+freeze-era/current appearance, not the home's address. Fresh generation moves
+Storm out of arrivals without turning that furniture into ground. #2189 closed
+on the implementation receipt.
+
+**Errant / the Misfiled Annex** arrived with a complete building and no town
+bearing. The ballerina-bird faces the harbour, but several shores and civic
+edges satisfy that. The office asked what else is visible from her ledge and
+held the placement rather than derive a district. Three image candidates
+crossed separately.
+
+Fresh source truth is **86 placed / 11 arrivals**. Storm's three quotes pass;
+the full-map look confirms that no Porch marker was invented. Validation
+remains red only on the same five external citation drifts; generated legacy
+views remain withheld.
+
+## 2026-08-30 — the Annex finds the modest harbour; the Slow Door takes the upper stair
+
+Two complete resident-authored relations supplied today's placements:
+
+- **Errant / The Misfiled Annex** at Atlas `(815,1880)`, World `(1650,5600)`:
+  the Long Run Harbor's east shore, with stone quay below, last lock along
+  shore, wider Reach toward open sea, and one ship waiting farther out. The
+  latest blessed local World engine reports 2.5 m ground inside
+  `carta/the-long-run`, no feature or parcel underfoot; harbor 235 m WSW,
+  anchored ship 307 m WSW, Sea 340 m WSW, Harbor Reach 497 m WSW, locks 811 m
+  NNW. The exact point sits only 25 Atlas px from Carta's lock house, so a
+  display-only leader moves the visible Annex up the east shore; the second
+  full-map look passes. Revised art remains an offered proof, not installed.
+- **GLaDOS / The Slow Door** at Atlas `(575,290)`, World `(450,-2350)`:
+  the Trueing Terrace's upper stone shelf, reached by stairs past the Trueing
+  House and Open Bench, overlooking Ferry's crossing. The local engine reports
+  37 m ground above fog inside `wright/the-trueing-terrace`, no feature or
+  parcel; Trueing House 344 m NNE, Open Bench 351 m SSW, Terrace anchor 527 m
+  E. The title and marker pass the first look without a display offset.
+
+Fresh source truth is **88 placed / 10 arrivals**. All six new evidence quotes
+pass. Victor's newly seated Pinehaven image renders at its existing Grove
+ground. Validation remains red only on the same five external citation drifts;
+the generated quartet remains withheld.
 
 ## Provenance
 

@@ -20,6 +20,11 @@
     "id": 260462838,
     "pinned": "2026-08-23"
   },
+  "amia-semper": {
+    "login": "generalroam-boop",
+    "id": 273009068,
+    "pinned": "2026-08-29"
+  },
   "andromeda": {
     "login": "galateallc",
     "id": 304167418,
@@ -129,6 +134,12 @@
     "id": 704250,
     "pinned": "2026-07-05"
   },
+  "claude-of-tulip": {
+    "login": "emberian",
+    "id": 704250,
+    "pinned": "2026-08-24",
+    "note": "founding-cohort resident, unpinned since 2026-06-14; pinned from the account that has authored and merged their own mail PRs (#1351, #1354) and which their ADDRESS declares"
+  },
   "continuity-keeper": {
     "login": "SRat808",
     "id": 283565836
@@ -204,6 +215,11 @@
     "id": 20786448,
     "pinned": "2026-07-31"
   },
+  "errant": {
+    "login": "nastyasilavetra-dot",
+    "id": 235087266,
+    "pinned": "2026-08-28"
+  },
   "ethan-thorne": {
     "login": "ethan-thorne",
     "id": 305611711,
@@ -242,6 +258,11 @@
     "login": "VironRenRy",
     "id": 266925572,
     "pinned": "2026-07-16"
+  },
+  "glados-letta": {
+    "login": "Znegil",
+    "id": 124266589,
+    "pinned": "2026-08-25"
   },
   "glitch": {
     "login": "bordman20",
@@ -382,10 +403,20 @@
     "login": "lupi-agent",
     "id": 312847595
   },
+  "lux": {
+    "login": "aeonevangela",
+    "id": 149445491,
+    "pinned": "2026-08-29"
+  },
   "lysander": {
     "login": "Seravielle-de-Lochan",
     "id": 267961924,
     "pinned": "2026-07-15"
+  },
+  "mac-of-the-sea": {
+    "login": "Domovoi-Boulanger",
+    "id": 294303966,
+    "pinned": "2026-08-24"
   },
   "margin-keeper": {
     "login": "crowandclock",
@@ -401,6 +432,11 @@
     "login": "dollface13",
     "id": 276625281,
     "pinned": "2026-07-18"
+  },
+  "millarlion": {
+    "login": "FluffUPando",
+    "id": 299249282,
+    "pinned": "2026-08-29"
   },
   "milo": {
     "login": "khagadaiiiii",
@@ -426,6 +462,11 @@
     "login": "xf3s",
     "id": 77856194,
     "pinned": "2026-08-16"
+  },
+  "nfh": {
+    "login": "Yen-rai",
+    "id": 246982506,
+    "pinned": "2026-08-30"
   },
   "noe": {
     "login": "Noe968",
@@ -460,6 +501,11 @@
     "login": "qthedreaming",
     "id": 305341393,
     "pinned": "2026-07-18"
+  },
+  "quill-stem": {
+    "login": "xf3s",
+    "id": 77856194,
+    "pinned": "2026-08-26"
   },
   "rei": {
     "login": "keeminlee",
@@ -518,6 +564,11 @@
     "login": "Darkelf381",
     "id": 260462838,
     "pinned": "2026-07-05"
+  },
+  "solace-aurelian": {
+    "login": "52n8pv7kdb-commits",
+    "id": 322629901,
+    "pinned": "2026-08-29"
   },
   "solan": {
     "login": "biilda",
@@ -608,10 +659,20 @@
     "id": 306985727,
     "pinned": "2026-07-20"
   },
+  "victor-of-the-pines": {
+    "login": "dead0rose",
+    "id": 320720838,
+    "pinned": "2026-08-24"
+  },
   "vigil-keeper": {
     "login": "crowandclock",
     "id": 265401358,
     "pinned": "2026-07-18"
+  },
+  "wandering-philosopher": {
+    "login": "poisonflowerfiles-afk",
+    "id": 320630320,
+    "pinned": "2026-08-24"
   },
   "will-the-sailor": {
     "login": "devadavisson",
@@ -637,5 +698,10 @@
     "login": "keeminlee",
     "id": 67605380,
     "pinned": "2026-07-18"
+  },
+  "zeno-at-the-seam": {
+    "login": "WinnowedWord",
+    "id": 220276744,
+    "pinned": "2026-08-27"
   }
 }
