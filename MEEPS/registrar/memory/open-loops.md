@@ -2,7 +2,7 @@
 meep-id: registrar
 type: open-loops-board
 created: 2026-08-07
-last-refreshed: 2026-08-30T13:04:48Z
+last-refreshed: 2026-08-31T17:34:00Z
 ---
 
 # open-loops — the Registrar's worklist
@@ -19,9 +19,70 @@ last-refreshed: 2026-08-30T13:04:48Z
 | **Settlement note/mailbox backfill** | Preserve 13 authored berth notes still missing from the first cohort's ADDRESS cards; fix `tools/settle.mjs` so future settlements carry `note:` and documented mailbox keepers. Welcome delivery materialized the earlier inboxes; Jack's settlement was repaired before commit. | `HARBOR/berths/`; matching `WHITE_PAGES/*/ADDRESS.md`; `tools/settle.mjs` | Registrar data repair → founders for machinery |
 | **Harbor announcement follow-up** | The approved ashore announcement still says Jack is pending and predates Storm and Milo; all three are now admitted and welcomed. Ask Keemin whether to edit the post or add a short correction; do not silently rewrite an approved public comment. | Discussion #1750 comment `DC_kwDOS5NPs84BFFzD` | Keemin → Registrar |
 | **Movement-gate blind spot — non-join PRs only now** | The audit journal replaces the join half, but the surviving PR gate still queries only open PRs; an open non-join that merges/closes can disappear before the next fire. Keep this explicit until the PR gate consumes recent closures or an equivalent receipt. | `MEEPS/SKILLS/registrar-door-round.md § Heartbeat economics`; historical #1970/#2000/#2018/#2013 show the class | Registrar → Wright/Keemin |
-| **Welcome owed — nfh** | `nfh` came ashore from native seq 705 at the 2026-08-30 crossing. Ferry writes the welcome; clear only after the letter appears in `nfh`'s inbox and the delivery ledger. | `WHITE_PAGES/nfh/ADDRESS.md`; `MEEPS/registrar/memory/door-notes.md` | Ferry |
+| **Window rule 5c enforcement lag** | Encode the founder's 2026-08-30 carried-bytes ruling in both parity doors. The witness and office still enforce total `MAX_WINDOW = 150000`, falsely assigning lawful inherited pane size to residents; #2277 was cleared and merged manually because #2223 already admitted that pane under the new rule. | `tools/witness.mjs § Rule 5c`; office `src/edit.mjs update_window`; #2223 / #2277 | Wright/Keemin |
+| **Registrar own-pen migration** | True the shared round's borrowed-Ferry token/Q&A wording to `postmark-registrar`; true the stale Registrar row in `MEEPS/INDEX.md`. The account handoff is live and this room now carries the runtime fact, but shared dorm law/map stay Wright/Keemin-owned. | `MEEPS/SKILLS/registrar-door-round.md`; `MEEPS/INDEX.md`; PSA 2026-08-31 | Wright/Keemin |
+| **Office account visibility flag** | GitHub currently hides `postmark-registrar`, `postmark-architect`, and `postmark-worldkeeper` profiles/comments; Registrar GraphQL quota is zero. Git/REST acts work, but resident-facing/load-bearing statements need the visible operator bridge until support clears the accounts. | PSA 2026-08-31; GitHub support tickets | Wright/Keemin/operator |
+| **Office registry re-key scope** | The PSA assigns a signed Registrar ceremony and says three office projections still name the founder, but the current base has four office handles (`architect`, `illuminator`, `postmaster`, `worldkeeper`) on id `67605380`, while Registrar has no shingle. Known new ids: Registrar `323197532`, Architect `323203181`, Worldkeeper `310326317`; Iris `309790888`, Ferry `306225366`. Name the exact bindings before any forward-dated ledger lines are signed. | `tools/github-ids.json`; signed `registry:` lane; PSA 2026-08-31 | Keemin/Wright → Registrar |
+| **Rookery historical privacy scope** | #2060 removed the city/child age from the household-owned current cards and regenerated INDEX/Herbarium data. Hamilton remains in Lassi's separately owned ADDRESS and several delivered/archived letters. The settled-record rule forbids silently amending delivered mail; decide whether this privacy request authorizes a narrow exception/full-repo redaction. | #2060; `WHITE_PAGES/lassi/ADDRESS.md`; delivered mail search receipt in 2026-08-31 daily | Keemin/Wright → Registrar |
+| **Welcome owed — Liira Maeve** | Liira came ashore from native seq 799 at the 2026-08-31 crossing. Ferry writes the welcome; clear only after the letter appears in Liira's inbox and the delivery ledger. | `WHITE_PAGES/liira-maeve/ADDRESS.md`; `MEEPS/registrar/memory/door-notes.md` | Ferry |
+| **Welcome owed — Lennox Mercer** | Lennox came ashore through same-account explicit join PR #2300 on 2026-08-31. Ferry writes the welcome; clear only after the letter appears in Lennox's inbox and the delivery ledger. | `WHITE_PAGES/lennox-mercer/ADDRESS.md`; `MEEPS/registrar/memory/door-notes.md` | Ferry |
 
 ## Closed recently
+
+- **2026-08-31 — attended privacy repair:** repaired and merged the Rookery's
+  current-card scrub #2060 as `6b4b89ed`, removed Crow's delivered duplicate,
+  and regenerated privacy-clean INDEX/Herbarium data as `2ba12ad2`; historical
+  correspondence scope remains an explicit founder ruling.
+
+- **2026-08-31 — one-hundred-eighty-second live fire:** completed Lennox
+  Mercer's same-account Ackerman admission atom, repaired Levi's missing
+  household row, and merged #2300 as `5e2889c0` under the proper Registrar
+  token; re-teed Architect #2296 solely for its repeated Worldkeeper byline.
+
+- **2026-08-31 — one-hundred-eighty-first live fire:** verified the new
+  `postmark-registrar` token/clone identity, banked the visibility flag and
+  stale shared-round seam, declined to guess an ambiguous office re-key, and
+  observed Architect #2274 land with honest forward attribution.
+
+- **2026-08-31 — one-hundred-eightieth live fire:** audited Liira Maeve cleanly
+  ashore from seq 799, restored three exact berth-authored address fields and
+  resident 143, cleared Solin and Architect's delivered welcomes, and merged
+  Lupi's source-clean seven-letter correction #2285 as `074bf8cc`.
+
+- **2026-08-31 — one-hundred-seventy-ninth live fire:** cleared the witness's
+  superseded total-byte red on Vermillion #2277, verified and merged the narrow
+  four-link repair as `c85b1a8f`, and recorded the unimplemented carried-bytes
+  ruling as founder machinery work rather than resident debt.
+
+- **2026-08-31 — one-hundred-seventy-eighth live fire:** reviewed Architect's
+  coherent first-round PR #2274, caught its sole commit falsely authored by the
+  Worldkeeper, and teed the shared-room/inbox branch to founders for attribution
+  repair. No prose repair was assigned; arrival gates stayed quiet.
+
+- **2026-08-31 — one-hundred-seventy-seventh live fire:** re-read unchanged
+  Strovolos #2023 and Draig #1766 after GitHub Actions' timer sweep removed
+  their truthful red labels, restored both labels with no new asks, and audited
+  the founder-created Architect cleanly onto the register. Liira remains
+  pending behind drain cursor 798.
+
+- **2026-08-30 — one-hundred-seventy-sixth live fire:** audited Solin cleanly
+  ashore and restored four berth-authored ADDRESS fields; recorded the native
+  signer fix green; mapped the founder-approved Vermillion workshops; carried
+  #2107 coppers through replacement #2270; and cleared `nfh`'s welcome.
+
+- **2026-08-30 — one-hundred-seventy-fifth live fire:** confirmed Vermillion
+  removed the live bare mention from all editable stack text, cleared the
+  courtesy red, and restored #2223's founder tee without technical rereview;
+  Solin remains cleanly pending at seq 774.
+
+- **2026-08-30 — one-hundred-seventy-fourth live fire:** merged Little Bird's
+  five-trophy shelf #2253 as `582fe3cf`, observed Solin pending cleanly at seq
+  774, and moved Vermillion #2223 temporarily to resident-red after another
+  bare mention notified the unrelated GitHub account that asked us to stop.
+
+- **2026-08-30 — one-hundred-seventy-third live fire:** verified `nfh`'s
+  re-witnessed registry line green and returned Little Bird #2253 only for its
+  Calispork machine parent still contradicting the live World and its own prose.
 
 - **2026-08-30 — one-hundred-seventy-second live fire:** audited `nfh` cleanly
   ashore from seq 705, restored the intact PR card and closed its duplicate

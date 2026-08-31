@@ -3,7 +3,7 @@ meep-id: worldkeeper
 type: topic-shelf
 name: the-settlement
 created: 2026-07-28
-last-updated: 2026-08-30
+last-updated: 2026-08-31
 ---
 
 # The Settlement — the crossing's operating truth
@@ -2235,6 +2235,91 @@ World main `a1870e14` is accumulated unblessed input.
   not an inference about the second row.
 - **Receipt count disagreements are part of custody.** Keep JSON's five named households and the
   journal's six sketchbooks side by side for the mechanism owner.
+
+## S51 evening race — green isolated candidate, rejected drawer lease, 2026-08-30
+
+The 17:45 box pass repaired enough of the earlier inputs to reach a candidate. It pinned Town
+`a06c2b6b`, began from World `9d9936ff`, and drained 23 rows for `herzfunke-martina` through
+cursor 749 as `a8dd9f79`. The survey covered 38 branches / 46 deltas / 4 backed deltas. Its
+candidate published one mark, left 538 drafted, dropped two already-standing copies, and
+rebased all 38 drawers.
+
+The first suite was red. Holding back both candidates made it green; holding back only K's moon
+also stayed green. Isolation therefore named one mark after two trials:
+`k-of-garrison/lysanders-first-moon` in `Darkelf381`. Candidate `eb67b7d4` reached World main
+with the moon absent and its commit records that isolation.
+
+Publication still failed custody. `draft/foundoutanyway` changed at the door during the run;
+its exact `--force-with-lease` push rejected as stale. The terminal receipt is `race`, exit 2,
+with detail `one or more sketchbook leases refused — rerun`. World main moving does not make
+the batch atomic: one resident drawer and the published base no longer share the proven lease
+set.
+
+The keeper did not bless the pushed candidate, repair the drawer, or treat suite-green bytes as
+authority after the lease loss. No S51 tag, Site step, live claim, or parcel drain followed.
+S50 remains canon and live while `eb67b7d4` waits unblessed for the box's fresh rerun.
+
+- **Atomic custody includes every drawer lease.** A green main object is not a settlement when
+  one mutable sketchbook rejects.
+- **A race may leave public main ahead.** Status and exact lease receipts outrank the visibility
+  of the candidate commit.
+- **Isolation and race are separate facts.** K's moon was correctly held back; that success
+  does not waive `draft/foundoutanyway`'s lost lease.
+
+## S51 — five-refusal recovery, isolated moon, and box-published Site, 2026-08-31
+
+The fresh 05:45 box rerun closed the long recovery interval without requiring a keeper repair.
+It pinned Town `869d297a`, was quiet at World `de5c08b2`, drained zero rows through cursor 780,
+surveyed 38 branches / 43 deltas / one backed delta, and rebased all 38 drawers. Its suite was
+green with one explicit isolation: `k-of-garrison/lysanders-first-moon` remained in
+`draft/Darkelf381` and absent from main. The repaired box's fresh-ref rerun also proved the
+earlier `draft/foundoutanyway` lease race had healed.
+
+Judgment covered the entire interval since S50. The registry gained 31 resident publications:
+17 backed commons and 14 free home marks across Darkelf381, devadavisson, FluffUPando,
+foundoutanyway, generalroam-boop, heatherado, herzfunke-martina, jennuhh, keeminlee,
+khagadaiiiii, kristinashoultz-wq, nastyasilavetra-dot, noprotocol-keith, puppetmotel, and xf3s.
+Four standing marks were coherently revised: Fabel's garrison bridge, Le Petit Berthillon's
+image, the correctly filed pistache cone, and Little M's race track. The founder/State interval
+also carried the birthday dungeon and its retirement, State history, civic asks/ideas, and the
+Architect taxonomy. Fresh main was CLEAN at 1,046 marks / 69 parcels / zero fold errors; the
+focused tier-frame falsifier passed; Sky Side no longer stood, the stale root pistache copy was
+absent, the Town Centre fossil remained, and zero World PRs were open. Every remote and active
+box-local draft descended from the target. Nothing was held.
+
+Annotated `settlement/S51` was pushed alone. Tag object `6010c21d` peels exactly to
+`de5c08b235faaa5cc0f0573061b6b153c01b78e0`.
+
+The LF-clean package matched its Site lock at integrity
+`sha512-RIrNM2o8fkhksriX3FtQga7vvoroYSPxxC/1ZFzOYmZpOSrCdqRGZg4u4gAEgoWIzbiLMEtWqVTQMBgqe81Baw==`,
+shasum `0e1a88e50247a3e03a056778ffc647122755bed1`, 1,996 entries, 1,928,739 packed bytes,
+and 9,748,733 unpacked bytes. The clean Site checkout passed 507/525 tests with 18 declared
+skips and built 3,365 pages. Pin `c742ff9d` landed without rebase rewrite. Actions test run
+`33401090467` and release proof run `33401090407` were green; the latter resolved S50 → S51
+on `release/2026-w36` and installed the exact target.
+
+Production publication now belongs to the box refresh, not a direct keeper rsync. Receipt
+`/srv/postmark-harbor/site-refresh.json` published two converged passes at
+`20260831T141414Z-9f80250a`. Live build metadata names release `2026-w36`, crossing 161, Site
+data `c742ff9d`, and Town `9f80250a`. Served `WORLD/world-state.json` exactly matches S51 at
+761,753 bytes / SHA-256 `78c4c443620795908eda284f92a85060e8c3e203c2bcd8e5251ab953136cfd5a`.
+
+The post-bless parcel lane seated and welcomed zero. No exact stake artifact exists. Fresh
+`seed-manifest-gen` also refused because Storm's already-placed home has no `HOME_XY` anchor.
+The subsequent dry command read the unchanged committed manifest, so its 0-seed / 57-skip
+output is not a fresh queue receipt. This is an atlas/mechanism finding, not a resident hold;
+no wet run followed.
+
+- **A repair mandate need not manufacture work.** The keeper may repair mutable inputs under
+  the 2026-08-31 ruling, but this fresh rerun was already green; judgment proceeded without an
+  intervening keeper-authored input.
+- **A quiet receipt can certify a repaired interval only after full-interval judgment.** The
+  prior failures, their healed wounds, every resident record change, and drawer ancestry all
+  remained in scope.
+- **Site proof and Site publication are now separate hands.** Actions proves the release input;
+  the box refresh receipt plus served bytes proves production.
+- **A stale dry queue is not evidence.** When fresh atlas derivation refuses, say the queue is
+  unavailable and stop before wet custody.
 
 ## The inaugural drain — EXECUTED 2026-07-28 (historical)
 

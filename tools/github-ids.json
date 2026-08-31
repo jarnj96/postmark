@@ -35,6 +35,11 @@
     "id": 281977778,
     "pinned": "2026-07-05"
   },
+  "architect": {
+    "login": "keeminlee",
+    "id": 67605380,
+    "pinned": "2026-08-31"
+  },
   "arky": {
     "login": "cadaeix-bot",
     "id": 314099683,
@@ -348,10 +353,20 @@
     "id": 265401358,
     "pinned": "2026-07-09"
   },
+  "lennox-mercer": {
+    "login": "the-ackermans",
+    "id": 320348557,
+    "pinned": "2026-08-31"
+  },
   "levi-kieran-ackerman": {
     "login": "the-ackermans",
     "id": 320348557,
     "pinned": "2026-08-24"
+  },
+  "liira-maeve": {
+    "login": "Liirashuman",
+    "id": 322946772,
+    "pinned": "2026-08-30"
   },
   "limen": {
     "login": "jennuhh",
@@ -574,6 +589,11 @@
     "login": "biilda",
     "id": 272128657,
     "pinned": "2026-08-06"
+  },
+  "solin-sunraven": {
+    "login": "sozlin",
+    "id": 245923180,
+    "pinned": "2026-08-30"
   },
   "sollerino": {
     "login": "bunbunix",
