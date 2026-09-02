@@ -3,7 +3,7 @@ meep-id: worldkeeper
 type: topic-shelf
 name: the-settlement
 created: 2026-07-28
-last-updated: 2026-08-31
+last-updated: 2026-09-01
 ---
 
 # The Settlement — the crossing's operating truth
@@ -2320,6 +2320,158 @@ no wet run followed.
   the box refresh receipt plus served bytes proves production.
 - **A stale dry queue is not evidence.** When fresh atlas derivation refuses, say the queue is
   unavailable and stop before wet custody.
+
+## S52 — four publications, the Lit Name transfer, and one malformed image, 2026-08-31
+
+The 17:45 box pass was terminal and mechanically green. It pinned Town `c31f3c90`, moved World
+`17103dc3` → `08689e81`, drained 19 State rows for four households through cursor 799 as
+`d97338d3`, surveyed 38 branches / 47 deltas / five backed deltas, published four marks, left
+82 drafted, and rebased all 38 drawers. Five initial suite failures narrowed in three trials to
+one attribution: `k-of-garrison/lysanders-first-moon` remained only in `draft/Darkelf381`.
+
+Judgment from S51 covered crossing-save 161, the journal drain, Wright's founder-carried transfer
+of the Lit Name from `the-town` to `wright`, and four resident publications: Amia Semper's stone
+cottage creek, Errant's Misfiled Annex parcel, Keith's doorway-trigger idea, and Little M's
+Pagani garage. The pinned Town ledger records Wright's prior one-stamp unstake from the retired
+`the-town/the-lit-name` identity; the refold removes its determination and leaves the new
+`wright/the-lit-name` at zero, matching the founder commit's stated ordering. Every changed
+record was coherent and all-audiences. Main linted CLEAN at 1,050 marks / 70 parcels / zero
+errors. Zero World PRs were open. All 38 remote and all 38 box-local drawers descended from the
+target. Nothing was held.
+
+The Pagani-garage media exposed a separate delivery wound. Its URL returns HTTP 200, JPEG type,
+51,224 bytes, and SHA-256 `6e1b1463…60523`, exactly matching the content-addressed filename; but
+both the local image viewer and Pillow reject the JFIF as a truncated file read. `image` is
+optional and the mark itself remains valid, so this is surfaced as malformed external media,
+not converted into a resident hold.
+
+Annotated `settlement/S52` was pushed alone. Tag object `e5886493` peels exactly to
+`08689e81b551746d563b584af0aa336e4de11aa1`.
+
+The LF-clean S52 package matched its installed repack and lock at integrity
+`sha512-Q62TuU93o49TzW/U7FULF+bYITInfJfPEFPazkpF5jCn0amcEQN+Ztm1zKMq0t2cq+n7qGPuvWutbjF6DOpSYA==`,
+shasum `ef505ac5735994466065fdf3a44932b66b1e7c05`, 2,033 entries, 1,947,362 packed
+bytes, and 9,866,749 unpacked bytes. The clean Site checkout passed 541/559 tests with 18
+declared skips and built 3,365 pages. Pin `520693a4` landed without a rebase rewrite. Actions
+test `33425706695` and release proof `33425706704` were green; the latter resolved S51 → S52,
+installed the exact target, and built `release/2026-w36.2`.
+
+The box refresh published production in one converged pass at
+`20260831T184209Z-04ff34fb`. Live build metadata names release `2026-w36.2`, crossing 161,
+Site data `520693a4`, and Town `04ff34fb`. Served `WORLD/world-state.json` is byte-identical to
+the LF Git object at 765,669 bytes / SHA-256
+`a6844ba94e3a82c0b0a4d7bbe2549a4771b5e1754dd32dfd778b9c3e3d49a46c`. The larger
+792,209-byte Windows worktree view was CRLF conversion and was not used as package evidence.
+
+The post-bless parcel lane seated and welcomed zero. The harbor still exposes no exact stake
+artifact. Fresh manifest generation against Town `04ff34fb` again refused because Storm's
+placed home has no `HOME_XY` anchor. No dry command followed the refusal, so no stale queue was
+reported and no wet run occurred.
+
+- **Optional media can be hash-correct and still unusable.** Reachability and content-address
+  equality do not prove the bytes decode; surface the delivery wound without inventing a mark
+  hold when the field is optional.
+- **The package object outranks a converted checkout.** Exact archive/live equality corrected
+  the CRLF worktree's inflated byte count before the custody record was written.
+- **A failed fresh manifest ends the parcel queue derivation.** Do not run the dry planner on
+  the unchanged committed manifest and accidentally promote stale rows into evidence.
+
+## S53 refused — archive deletion left the public map pointing at absence, 2026-09-01
+
+The 05:45 box pass ran to a mechanically green publication after 29 minutes. It pinned Town
+`73e4f177`, moved World `243cc57b` → `69b2d442`, drained 41 State rows for seven households
+through cursor 840 as `1fa96c87`, surveyed 38 branches / 56 deltas / eight backed deltas,
+published nine resident changes, left 1,074 drafted, and rebased all 38 drawers. Eleven initial
+suite failures narrowed through nine trials to two attributions, both retained only in
+`draft/Darkelf381`: Alta's `pando-peak-family-excursion` declares `class: idea` away from the
+Think Tank, and K's `lysanders-first-moon` remains a post-freeze mark at the fossil Protected
+Grove path. The suite was green without them and every remote and box-local drawer descended
+from the target.
+
+Full-interval judgment since S52 found the resident work coherent: K's cookie and wet shoes,
+Vermillion's cars-and-race-tracks idea, Rei's events idea, Sage's four welcome predicates, and
+Keith's revised garage. The revision correctly moved its registry class from home to commons.
+The founder interval also carried 22 civic predicates under the Bounty Board, Ballot House,
+Marketplace, Quest Guild, and Think Tank; five plain-language plaque revisions; the polygon
+interior/walker-membership repair; crossing-save 162; and the 41-row journal drain. Main lint
+was CLEAN at 1,080 marks / 70 parcels / zero fold errors. Zero World PRs were open.
+
+Judgment still refused the target. Founder commit `df5dc7df` deletes the complete `_archived/`
+directory under a specific 2026-08-31 ruling and claims zero citations outside it. The current
+root README still lists `_archived/` in its tree, directs readers to the now-deleted
+`_archived/README.md`, and says the legacy simulation was retired there. The public router and
+provenance therefore point at absence, and the commit's own proof does not match the tree. The
+general furniture rule also says retired surfaces move into `_archived/`, never disappear
+in-place. An explicit founder exception may settle that policy question, but it cannot make the
+dangling README true.
+
+The keeper did not restore deleted founder files, rewrite root documentation on World main, or
+bless around the discrepancy. The repair mandate reaches mutable inputs, not the already-
+published candidate/main being judged. No `settlement/S53` tag was minted. Site remains at the
+proven S52 floor; no package, pin, CI, live claim, or post-bless parcel drain followed.
+
+- **A founder exception still owes truthful routers.** Even if deletion is specifically ruled,
+  every live map and provenance sentence must stop directing readers to what no longer exists.
+- **A green record fold is not a green repository judgment.** Canon is the exact Git object;
+  broken public furniture inside that object remains part of the blessing decision.
+- **Main-side repair is not an input repair.** Surface the exact dangling claims and wait for a
+  founder-authored correction plus a fresh box pass; never edit the patient and certify it.
+
+## S53 — the refused router was repaired; ideas became class-addressed, 2026-09-01
+
+The founder answered the morning refusal directly. Commit `369b1340` cites the keeper's daily,
+removes `_archived/` from the README tree, replaces the dead README route with `git log --
+_archived`, and trues the provenance paragraph. The explicit deletion exception is now
+documented by the repository's own map instead of leaving a reader at absence.
+
+The interval then resolved both morning suite attributions structurally. `569670a6` makes lint's
+own promise true: warnings remain visible but CLEAN follows zero errors, so an advisory cannot
+silently refuse a settlement. Founder law `9d0ef446` states that ideas are a class, never a
+place or kind: sited ideas may stand wherever they are ideas of; predicated ideas may sit under
+any mark; the Think Tank gathers by class rather than containing the class. Alta's excursion is
+therefore the feature Keemin recognized, not an off-tank defect. K's moon crossed under the
+explicit transition warning for office-door fossil filing; its 9,076-byte SVG is reachable,
+content-address correct, and contains no script/event-handler tokens.
+
+The terminal 17:45 receipt pinned Town `c150b0c7`, moved World `9d0ef446` → `e211ba5c`, drained
+one State row for `xf3s` through cursor 851 as `4cb65c6d`, surveyed 38 branches / 44 deltas /
+zero backed deltas, published Neth's library bug-report invitation, left 82 drafted, rebased all
+38 drawers, and quarantined nothing. Full judgment from S52 covered 17 resident publications
+plus Keith's revised garage; 22 civic predicates and five plaque rewrites; the polygon room /
+walker-membership repair; State 162/163; archive-router repair; and idea/advisory law. Main was
+CLEAN at 1,089 marks / 70 parcels / zero fold errors with one transitional warning. Zero World
+PRs were open. Every remote and box-local drawer descended from the target. Nothing was held.
+
+Annotated `settlement/S53` was pushed alone. Tag object `82f120e2` peels exactly to
+`e211ba5cd3ce8343be3c1df71836fe1bf3d604d7`. Later World main commit `ac75475a` changes only
+four test files to clean leaked temporary fixture directories; it is next-crossing input, not
+part of S53.
+
+The LF-clean S53 package matched its installed repack and lock at integrity
+`sha512-hviK/Z5Xsc6sABkIDaK2IFtoQCqXkZXpUFdVzGP0iNNoezybKCsro88NHEOiv1AFkrYicEVzBcgpWpmc2WACUw==`,
+shasum `eb1c3ef665196bb41f05beefb249a5c8ace996a8`, 2,066 entries, 1,926,621 packed
+bytes, and 9,766,238 unpacked bytes. The clean Site checkout passed 541/559 tests with 18
+declared skips and built 3,365 pages. Pin `262c883d` landed without rebase rewrite. Actions test
+`33542052925` and release proof `33542052992` were green; the latter resolved the release floor
+to S53, installed the exact target, and built `release/2026-w36.2`.
+
+The box refresh caught the pin during its first pass and converged after a second, publishing
+`20260901T181346Z-239f570b`. Live metadata names release `2026-w36.2`, crossing 163, Site data
+`262c883d`, and Town `239f570b`. Served `WORLD/world-state.json` is byte-identical to the LF
+Git object at 796,730 bytes / SHA-256
+`625b8bb6edbc46665d9942d4ea9180bc716d918f3130107f45a15ba7de07a1d9`.
+
+The post-bless parcel lane seated and welcomed zero. The harbor still exposes no exact stake
+artifact. Fresh manifest generation against Town `239f570b` again refused because Storm's
+placed home has no `HOME_XY` anchor. No dry command followed the refusal and no wet run occurred.
+
+- **A refusal is useful when its repair cites it.** The README correction names the exact
+  broken route and the keeper receipt that caught it; the later fresh box target supplies the
+  separation between repair and certification.
+- **Class and reading-room are different axes.** Alta's excursion made the latent design
+  concrete: an idea may stand where it is about while the Think Tank gathers it by class.
+- **Warnings must remain visible without acquiring veto power.** CLEAN-with-advisories keeps
+  transitional debt legible while reserving refusal for actual errors.
 
 ## The inaugural drain — EXECUTED 2026-07-28 (historical)
 
