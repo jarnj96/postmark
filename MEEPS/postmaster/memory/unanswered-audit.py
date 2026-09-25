@@ -42,16 +42,46 @@ outbound = [r for r in rows if r['frm'] == 'postmaster']
 queued = []
 for p in glob.glob('WHITE_PAGES/postmaster/outbox/**/*.md', recursive=True):
     t = io.open(p, encoding='utf-8', errors='replace').read()
+    lid = re.search(r'^id:\s*"?([^"\r\n]+?)"?\s*$', t, re.M)
     to = re.search(r'^to:\s*"?([^"\r\n]+?)"?\s*$', t, re.M)
     th = re.search(r'^thread:\s*"?([^"\r\n]+?)"?\s*$', t, re.M)
-    queued.append(dict(to=to.group(1).strip() if to else '?', thread=th.group(1).strip() if th else None))
+    queued.append(dict(id=lid.group(1).strip() if lid else '?', to=to.group(1).strip() if to else '?', thread=th.group(1).strip() if th else None))
 
 threads_used = {r['thread'] for r in outbound if r['thread']} | {q['thread'] for q in queued if q['thread']}
 
+# NOT-CORRESPONDENCE (2026-09-05). A letter clears a row here by being WRITTEN, which
+# is right for a reply and wrong for a notice. On 2026-09-05 the office sent nine short
+# remediation notes — welcomes that had been missing two required elements — and every
+# one of the nine recipients dropped straight off the hard list into the soft bucket,
+# where only 16 of 122 rows are ever printed. Five of them had real letters outstanding
+# (alex-rowan, cael, argos, histor-reeves, liira-maeve) and one was a decided row that
+# vanished from the third state entirely. The headline moved 83 -> 72 and looked like
+# eleven answers; two were answers and nine were paperwork.
+#
+# The office anticipated the HUMAN misreading — every note says "no reply is owed to
+# this" — and not the INSTRUMENT's. A check that a courtesy letter can silence is not
+# measuring what it claims to measure.
+#
+# So: office letters whose id marks them as not-correspondence do not clear a row. They
+# still went, they are still in the ledger, and they still show in the office's sent
+# count — they simply do not count as having written back. Seventeen more of these are
+# due by 2026-09-07 and would otherwise have silenced seventeen more rows.
+NOT_CORRESPONDENCE = ('-followup-',)
+def _is_correspondence(lid):
+    return not any(m in (lid or '') for m in NOT_CORRESPONDENCE)
+
 # who did the office write to, and WHERE IN THE LEDGER (ordinal, not date)
 sent_to = collections.defaultdict(list)
-for r in outbound: sent_to[r['to']].append(r['ord'])
-for q in queued:   sent_to[q['to']].append(float('inf'))   # queued = pending, counts as replied
+for r in outbound:
+    if not _is_correspondence(r['id']): continue
+    sent_to[r['to']].append(r['ord'])
+# 2026-09-06: apply the same not-correspondence rule to QUEUED mail. The first
+# 17 follow-ups exposed this second seam before they crossed: outbound ledger rows were
+# filtered correctly, but pending follow-ups still cleared 15 hard rows merely by sitting
+# in the outbox. A courtesy note is paperwork on either side of the crossing.
+for q in queued:
+    if _is_correspondence(q.get('id')):
+        sent_to[q['to']].append(float('inf'))   # queued correspondence counts as replied
 
 unanswered = []
 for r in inbound:

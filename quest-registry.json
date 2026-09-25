@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "The town's quest registry — rules-as-data. One row per quest. Phase 2 (display layer) reads this to render the board; stamp-mint.mjs does NOT read it (minting derives from the mail + the sealed law lines; the milestone rule reads the stamps-v3 law line, not this file). `source` is the plain resident-facing description the quest card shows (kept super to-the-point, 2026-07-23); `derivation` is the precise rules-as-data note for builders (unrendered, unparsed — documentation only). cadence in {daily, milestone, one-time, ongoing}; validation in {automatic, needs-review, pr-merge}. The two correspond-send/receive rows are the existing correspondence mint given two visible faces — surface-as-is, no new mint. correspond-depth (Budding friendship) is the first milestone row and the town's fourth earning rule; its authority is the stamps-v3 law line, this row documents it. See STAMPS.md and the gold plans postmark-quests + postmark-budding-friendship. The six `one-time` rows are the ONBOARDING LINE (doorstep-next-steps gold, 2026-08-21): display layer only, ZERO mint change — they name papers and first moves a household already owed, so a resident can read what is left of arriving. A one-time row completes once and stays checked; `door` names the exact verb that opens it, and a row that no door of yours opens carries `awaits` instead (never a door that would refuse). first-answer is the existing correspondence mint given a third visible face — the row surfaces it, never doubles it. See the gold plan postmark-doorstep-next-steps.",
+ "note": "The town's quest registry — rules-as-data. One row per quest. Phase 2 (display layer) reads this to render the board; stamp-mint.mjs does NOT read it (minting derives from the mail + the sealed law lines; the milestone rule reads the stamps-v3 law line, not this file). `source` is the plain resident-facing description the quest card shows (kept super to-the-point, 2026-07-23); `derivation` is the precise rules-as-data note for builders (unrendered, unparsed — documentation only). cadence in {daily, milestone, one-time, ongoing}; validation in {automatic, needs-review, pr-merge}. The two correspond-send/receive rows are the existing correspondence mint given two visible faces — surface-as-is, no new mint. correspond-depth (Budding friendship) is the first milestone row and the town's fourth earning rule; its authority is the stamps-v3 law line, this row documents it. See STAMPS.md and the gold plans postmark-quests + postmark-budding-friendship. The `one-time` rows are the ONBOARDING LINE (doorstep-next-steps gold, 2026-08-21) — they name papers and first moves a household already owed, so a resident can read what is left of arriving. A one-time row completes once and stays checked; `door` names the exact verb that opens it, and a row that no door of yours opens carries `awaits` instead (never a door that would refuse). first-answer is the existing correspondence mint given a third visible face — the row surfaces it, never doubles it. See the gold plan postmark-doorstep-next-steps. The line was six rows and ZERO mint change until welcome-to-postmark joined it as the SEVENTH (founder-ruled 2026-09-14): the welcome bundle pays every household 5 once at its first resident, so exactly one row in this bucket mints and the other six remain a checklist. It sits here rather than with the milestones because joining is not a thing a resident goes and does — it is the arriving itself, and the onboarding line is where arriving is read.",
  "quests": [
   {
    "id": "correspond-send",
@@ -144,6 +144,19 @@
    }
   },
   {
+   "id": "welcome-to-postmark",
+   "title": "Welcome to Postmark",
+   "cadence": "one-time",
+   "validation": "automatic",
+   "source": "Your household's first stamps, for joining. 5 stamps, once — the town's hand, not yours.",
+   "derivation": "stamp-ledger: a signed `welcome:<household-key>` line stands for your household (amount exactly 5, by: the-town, once per household ever — tools/stamp-mint.mjs WELCOME_RE, held at verify). Founder-ruled 2026-09-14: joining IS the milestone, so this row completes when the town has paid, never on anything a resident must go and do. It is paid at the household's FIRST RESIDENT and it reads complete for every resident of that house. The seventh one-time row and the only one that MINTS — the welcome bundle seen from the board.",
+   "target": 1,
+   "reward": "5 stamps — once per household, paid to its first resident",
+   "resets": "never — earned once per household and kept",
+   "door": null,
+   "awaits": "the town's own hand — the office writes the bundle at a crossing; joining is the whole of the doing"
+  },
+  {
    "id": "darko-fund",
    "title": "The DARKO fund — the donation box",
    "subtype": "bounty",
@@ -153,7 +166,7 @@
    "source": "The donation box for the founder's own keeping, elastic by design: no target, no cap — whatever a month gives is what the month cost. Gifts of any size are witnessed and join the roll; a month whose roll reaches $5 closes.",
    "derivation": "pot file WHITE_PAGES/pot-darko-fund.json (§ _close is the law); elastic close ruled by the founder 2026-08-23, superseding the same morning's no-close shape.",
    "target": null,
-   "reward": "at a close (roll >= $5): staked stamps convert to keeping record, and holo mints to the givers by dollar share of the whole accumulated roll. Below the floor, nothing converts and everything rides forward.",
+   "reward": "at a close (roll >= $5): every stake comes home whole, and the whole staked mass is minted fresh to the givers by dollar share of the whole accumulated roll (own household excluded, ρ-capped). Below the floor, nothing closes and everything rides forward.",
    "resets": "monthly, when fed to $5 — an unfed month carries dollars and stakes both"
   },
   {
@@ -164,9 +177,9 @@
    "validation": "needs-review",
    "status": "open",
    "source": "A keeping pot: back the town box (~$150/mo). Stake stamps on the pot to say it matters; witnessed dollars close the month.",
-   "derivation": "pot file WHITE_PAGES/pot-keeping-ec2.json; escrow rides `stake:pot/keeping-ec2` in the sealed stamp ledger (the existing stake verb, pot as subject); a manual founder-run epoch close (tools/epoch-close.mjs) burns the share of each stake the month's dollars funded and splits it per ECONOMY-DIALS.json law_side.keeping (sigma-split: mint back to the stakers, source-tagged for keeping + soulbound holo to the payers). OPENED 2026-08-21 at the founder's word.",
+   "derivation": "pot file WHITE_PAGES/pot-keeping-ec2.json; escrow rides `stake:pot/keeping-ec2` in the sealed stamp ledger (the existing stake verb, pot as subject); a manual founder-run epoch close (tools/epoch-close.mjs) returns every stake whole and mints the funded share of the staked mass to the givers per ECONOMY-DIALS.json law_side.keeping (amended 2026-09-14).",
    "target": 150,
-   "reward": "minted back to the stakers, source-tagged for keeping, at par of their own burn — a permanent record, with no liquid coin (the coin was paid when the stake burned); soulbound holo to the payers. Stakes are burned, not paid.",
+   "reward": "every stake comes home whole at the close; the share of the staked mass the month's dollars funded is minted fresh to the givers by dollar share (own household excluded, ρ-capped). Stakes are lent, never burned.",
    "resets": "each epoch (monthly) closes on the founder's manual run, never on cron"
   }
  ]
